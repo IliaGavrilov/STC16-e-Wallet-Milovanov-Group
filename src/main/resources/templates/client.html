@@ -1,12 +1,123 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <title>Приветствие</title>
+    <title>Bank</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
+
+    <!-- Custom stlylesheet -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link type="text/css" rel="stylesheet" href="../css/style.css"/>
+
 </head>
 <body>
 
-hello, client
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+    <h3 class="my-0 mr-md-auto font-weight-bold">Супер банковская компания</h3>
+
+    <a class="btn btn-outline-primary" href="#">Выход</a>
+</div>
+<div class="container-fluid wrapper">
+    <div class="row">
+        <div class="col-3">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="home-tab" data-toggle="pill" href="#home" role="tab"
+                   aria-controls="v-pills-home" aria-selected="true">Home</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#bank-account" role="tab"
+                   aria-controls="v-pills-profile" aria-selected="false">Банковский счёт</a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
+                   aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                <a class="nav-link" id="profile-tab" data-toggle="pill" href="#profile" role="tab"
+                   aria-controls="profile" aria-selected="false">Профиль</a>
+            </div>
+        </div>
+        <div class="col-9">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                     aria-labelledby="home">
+                    <p>Добро пожаловать!</p>
+                </div>
+                <div class="tab-pane fade" id="bank-account" role="tabpanel" aria-labelledby="bank-account">
+                    <form>
+                        <h2></h2>
+                        <div class="form-group">
+                            <label for="typeAccount">Тип счёта</label>
+                            <select class="form-control" id="typeAccount">
+                                <option>visa</option>
+                                <option>master</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Подать заявку</button>
+                    </form>
+
+                    <h2>Мои счета</h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <h5 class="font-weight-bold">Счёт 1</h5>
+                            <button type="button" class="btn btn-outline-danger float-right">Заблокировать</button>
+                            <hr>
+                            <p class="font-weight-light">1234 1234 1234 1234</p>
+                            <p class="font-weight-light">Visa</p>
+                        </li>
+                        <li class="list-group-item">
+                            <h5 class="font-weight-bold">Счёт 2</h5>
+                            <button type="button" class="btn btn-outline-danger float-right">Заблокировать</button>
+                            <hr>
+                            <p class="font-weight-light">1234 1234 1234 1234</p>
+                            <p class="font-weight-light">Visa</p>
+                        </li>
+                        <li class="list-group-item">
+                            <h5 class="font-weight-bold">Счёт 3</h5>
+                            <button type="button" class="btn btn-outline-danger float-right">Заблокировать</button>
+                            <hr>
+                            <p class="font-weight-light">1234 1234 1234 1234</p>
+                            <p class="font-weight-light">Visa</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    ...
+                </div>
+                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="media">
+                        <img src="../img/Icon-User.png" class="mr-1" alt="user ava">
+                        <div class="media-body align-items-center align-middle">
+                            <label for="first-name" class="col-sm-3 col-form-label">Имя пользователя:</label>
+                            <div class="col-sm-9">
+                                <p id="first-name" class="form-control-static">Какое-то имя</p>
+                            </div>
+                            <label for="last-name" class="col-sm-3 col-form-label">Фамилия пользователя:</label>
+                            <div class="col-sm-9">
+                                <p id="last-name" class="form-control-static">Какая-то фамилия</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
 
 </body>
 </html>
