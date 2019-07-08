@@ -1,4 +1,7 @@
-package main.java.com.controllers;
+package com.controllers;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class BankServiceCreateController {
@@ -6,5 +9,5 @@ public class BankServiceCreateController {
         public String index(){
             return "BankServiceCreate";
         }
-    }
 }
+
