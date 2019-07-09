@@ -3,24 +3,24 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Bank</title>
+    <title>Агрегатор банковских счетов</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
 
-    <!-- Custom stlylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="../bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
 
 </head>
 <body>
 
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h3 class="my-0 mr-md-auto font-weight-bold">Супер банковская компания</h3>
+    <h3 class="my-0 mr-md-auto font-weight-bold">Агрегатор банковских счетов</h3>
 
     <a class="btn btn-outline-primary" href="#">Выход</a>
 </div>
@@ -29,11 +29,13 @@
         <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="home-tab" data-toggle="pill" href="#home" role="tab"
-                   aria-controls="v-pills-home" aria-selected="true">Home</a>
-                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#bank-account" role="tab"
-                   aria-controls="v-pills-profile" aria-selected="false">Банковский счёт</a>
+                   aria-controls="v-pills-home" aria-selected="true">Главная</a>
+                <a class="nav-link" id="bank-products-tab" data-toggle="pill" href="#bank-products" role="tab"
+                   aria-controls="bank-products" aria-selected="false">Банковские продукты</a>
+                <a class="nav-link" id="my-products-tab" data-toggle="pill" href="#my-products" role="tab"
+                   aria-controls="my-products" aria-selected="false">Мои продукты</a>
                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                   aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                   aria-controls="v-pills-messages" aria-selected="false">Чат</a>
                 <a class="nav-link" id="profile-tab" data-toggle="pill" href="#profile" role="tab"
                    aria-controls="profile" aria-selected="false">Профиль</a>
             </div>
@@ -44,55 +46,123 @@
                      aria-labelledby="home">
                     <p>Добро пожаловать!</p>
                 </div>
-                <div class="tab-pane fade" id="bank-account" role="tabpanel" aria-labelledby="bank-account">
-                    <form>
-                        <h2>Форма подачи заявления на получение нового продукта</h2>
-                        <div class="form-group">
-                            <label for="typeAccount">Банковский продукт</label>
-                            <select class="form-control" id="typeAccount">
-                                <option>visa</option>
-                                <option>master</option>
-                            </select>
+
+
+                <div class="tab-pane fade" id="bank-products" role="tabpanel" aria-labelledby="bank-products">
+                    <div class="section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="service-wrapper">
+                                        <img src="img/bank-512.png" alt="Service 1">
+                                        <h3>Продукт 1</h3>
+                                        <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                        <a href="#" class="btn">Подать заявку</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="service-wrapper">
+                                        <img src="img/bank-512.png" alt="Service 2">
+                                        <h3>Продукт 2</h3>
+                                        <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                        <a href="#" class="btn">Подать заявку</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="service-wrapper">
+                                        <img src="img/bank-512.png" alt="Service 3">
+                                        <h3>Продукт 3</h3>
+                                        <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                        <a href="#" class="btn">Подать заявку</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="service-wrapper">
+                                        <img src="img/bank-512.png" alt="Service 1">
+                                        <h3>Продукт 4</h3>
+                                        <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                        <a href="#" class="btn">Подать заявку</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="service-wrapper">
+                                        <img src="img/bank-512.png" alt="Service 2">
+                                        <h3>Продукт 5</h3>
+                                        <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                        <a href="#" class="btn">Подать заявку</a>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="service-wrapper">
+                                        <img src="img/bank-512.png" alt="Service 3">
+                                        <h3>Продукт 6</h3>
+                                        <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                        <a href="#" class="btn">Подать заявку</a>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+                </div>
 
-                        <button type="submit" class="btn btn-primary">Подать заявку</button>
-                    </form>
 
+                <div class="tab-pane fade" id="my-products" role="tabpanel" aria-labelledby="my-products">
                     <h2>Мои продукты</h2>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-
-                            <span class="font-weight-bold">Банковский продукт 1
-                                <a href="#" role="button" class="btn btn-outline-danger float-right" title="Popover title" >Заблокировать</a>
-                            </span>
-                            <hr>
-                            <p class="font-weight-light">1234 1234 1234 1234</p>
-                            <p class="font-weight-light">Visa</p>
+                            <div class="media">
+                            <img src="img/bank-512.png" class="mr-3" alt="...">
+                            <div class="media-body">
+                                <h5 class="mt-0">Банковский продукт 1</h5>
+                                <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                <p>1234 1234 1234 1234</p>
+                                <a href="#" role="button" class="btn btn-red float-right" title="Popover title" >Заблокировать</a>
+                            </div>
+                        </div>
                         </li>
                         <li class="list-group-item">
-                             <span class="font-weight-bold">Банковский продукт 2
-                                <a href="#" role="button" class="btn btn-outline-danger float-right" title="Popover title" >Заблокировать</a>
-                            </span>
-                            <hr>
-                            <p class="font-weight-light">1234 1234 1234 1234</p>
-                            <p class="font-weight-light">Visa</p>
+                            <div class="media">
+                                <img src="img/bank-512.png" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Банковский продукт 2</h5>
+                                    <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                    <p>1234 1234 1234 1234</p>
+                                    <a href="#" role="button" class="btn btn-red float-right" title="Popover title" >Заблокировать</a>
+                                </div>
+                            </div>
                         </li>
                         <li class="list-group-item">
-                             <span class="font-weight-bold">Банковский продукт 3
-                                <a href="#" role="button" class="btn btn-outline-danger float-right" title="Popover title" >Заблокировать</a>
-                            </span>
-                            <hr>
-                            <p class="font-weight-light">1234 1234 1234 1234</p>
-                            <p class="font-weight-light">Visa</p>
+                            <div class="media">
+                                <img src="img/bank-512.png" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Банковский продукт 3</h5>
+                                    <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                    <p>1234 1234 1234 1234</p>
+                                    <a href="#" role="button" class="btn btn-red float-right" title="Popover title" >Заблокировать</a>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="list-group-item">
+                            <div class="media">
+                                <img src="img/bank-512.png" class="mr-3" alt="...">
+                                <div class="media-body">
+                                    <h5 class="mt-0">Банковский продукт 4</h5>
+                                    <p>Описание чудесного продукта нашей замечтательной системы</p>
+                                    <p>1234 1234 1234 1234</p>
+                                    <a href="#" role="button" class="btn btn-red float-right" title="Popover title" >Заблокировать</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
+
                 <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                     ...
                 </div>
+
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="media">
-                        <img src="../img/Icon-User.png" class="mr-1" alt="user ava">
+                        <img src="img/Icon-User.png" class="mr-1" alt="user ava">
                         <div class="media-body align-items-center align-middle">
                             <label for="first-name" class="col-sm-3 col-form-label">Имя пользователя:</label>
                             <div class="col-sm-9">
@@ -112,16 +182,15 @@
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-
+<!-- Javascripts -->
+<script src="../bootstrap/js/jquery-3.4.1.min.js"></script>
+<script src="../bootstrap/js/popper.min.js"></script>
+<script>window.jQuery || document.write('<script src="../bootstrap/js/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+<script src="../bootstrap/js/jquery.fitvids.js"></script>
+<script src="../bootstrap/js/jquery.sequence-min.js"></script>
+<script src="../bootstrap/js/jquery.bxslider.js"></script>
 
 </body>
 </html>
