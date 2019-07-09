@@ -3,23 +3,23 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Bank</title>
+    <title>Агрегатор банковских счетов</title>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Google font -->
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
 
-    <!-- Custom stlylesheet -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"/>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link type="text/css" rel="stylesheet" href="../css/style.css"/>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <script src="bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h3 class="my-0 mr-md-auto font-weight-bold">Супер банковская компания</h3>
+    <h3 class="my-0 mr-md-auto font-weight-bold">Агрегатор банковских счетов</h3>
 
     <a class="btn btn-outline-primary" href="#">Выход</a>
 </div>
@@ -28,11 +28,11 @@
         <div class="col-3">
             <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="home-tab" data-toggle="pill" href="#home" role="tab"
-                   aria-controls="v-pills-home" aria-selected="true">Home</a>
-                <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab"
-                   aria-controls="application" aria-selected="false">Заявки</a>
+                   aria-controls="v-pills-home" aria-selected="true">Главная</a>
+                <a class="nav-link" id="user-management-tab" data-toggle="pill" href="#user-management" role="tab"
+                   aria-controls="user-management" aria-selected="false">Управление пользователями</a>
                 <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                   aria-controls="v-pills-messages" aria-selected="false">Messages</a>
+                   aria-controls="v-pills-messages" aria-selected="false">Чат</a>
                 <a class="nav-link" id="profile-tab" data-toggle="pill" href="#profile" role="tab"
                    aria-controls="profile" aria-selected="false">Профиль</a>
             </div>
@@ -45,68 +45,84 @@
                 </div>
 
 
-                <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application">
-                    <h2>Заявки</h2>
+                <div class="tab-pane fade" id="user-management" role="tabpanel" aria-labelledby="user-management">
+                    <h2>Добавление пользователя</h2>
+                    <form>
+                        <div class="form-group">
+                            <label for="userSelect">Выберите пользователя</label>
+                            <select class="form-control" id="userSelect">
+                                <option>Вася Пупкин</option>
+                                <option>Иван Иванович</option>
+                                <option>Маршка Мартышкина</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="userRole">Выберите роль пользователя</label>
+                            <select class="form-control" id="userRole">
+                                <option>Администратор</option>
+                                <option>Банковский сотрудник</option>
+                                <option>Пользователь</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Добавить</button>
+                    </form>
+
+
+                    <h2>Пользователи</h2>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">
-                            <form>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какое-то имя</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какая-то фамилия</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Visa</p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn  btn-success">Создать</button>
-                                <button type="submit" class="btn btn-danger">Отклонить</button>
-                            </form>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Имя
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Какое-то имя</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Фамилия
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Какая-то фамилия</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Роль
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Администратор</span>
+                            </div>
+                            <button type="button" class="btn btn-red">Удалить</button>
                         </li>
                         <li class="list-group-item">
-                            <form>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какое-то имя</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какая-то фамилия</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Visa</p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn  btn-success">Создать</button>
-                                <button type="submit" class="btn btn-danger">Отклонить</button>
-                            </form>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Имя
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Какое-то имя</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Фамилия
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Какая-то фамилия</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Роль
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Администратор</span>
+                            </div>
+                            <button type="button" class="btn btn-red">Удалить</button>
                         </li>
                         <li class="list-group-item">
-                            <form>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какое-то имя</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какая-то фамилия</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Visa</p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn  btn-success">Создать</button>
-                                <button type="submit" class="btn btn-danger">Отклонить</button>
-                            </form>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Имя
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Какое-то имя</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Фамилия
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Какая-то фамилия</span>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-3 col-form-label font-weight-bold align-self-center">Роль
+                                    пользователя:</label>
+                                <span class="form-control-static  align-self-center">Администратор</span>
+                            </div>
+                            <button type="button" class="btn btn-red">Удалить</button>
                         </li>
                     </ul>
                 </div>
@@ -119,7 +135,7 @@
 
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <div class="media">
-                        <img src="../img/Icon-User.png" class="mr-1" alt="user ava">
+                        <img src="img/Icon-User.png" class="mr-1" alt="user ava">
                         <div class="media-body align-items-center align-middle">
                             <label for="first-name" class="col-sm-3 col-form-label">Имя пользователя:</label>
                             <div class="col-sm-9">
@@ -138,16 +154,16 @@
 </div>
 </div>
 
+<!-- Javascripts -->
+<script src="bootstrap/js/jquery-3.4.1.min.js"></script>
+<script src="bootstrap/js/popper.min.js"></script>
+<script>window.jQuery || document.write('<script src="bootstrap/js/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="bootstrap/js/bootstrap.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+<script src="bootstrap/js/jquery.fitvids.js"></script>
+<script src="bootstrap/js/jquery.sequence-min.js"></script>
+<script src="bootstrap/js/jquery.bxslider.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
 
 </body>
 </html>
