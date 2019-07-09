@@ -1,0 +1,10 @@
+ .show{
+     opacity: 1;
+ }
+
+ .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+     background-color: #2f556d;
+ }
+ .nav-pills .nav-link{
+     font-size: 16px;
+ }
