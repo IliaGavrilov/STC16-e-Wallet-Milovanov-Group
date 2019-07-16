@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2019-07-03-init" author="STC-16_Milovanov_Group">
+
+        <!-- TODO добавить условие if not exist в таблицы -->
+        <!--Roles-->
+        <createTable tableName="role">
+
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="type" type="varchar(31)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <insert tableName="role">
+            <column name="type" value="ADMIN"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="type" value="BANK"/>
+        </insert>
+
+        <insert tableName="role">
+            <column name="type" value="CLIENT"/>
+        </insert>
+
+        <!--User-->
+        <createTable tableName="user">
+
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="role" type="int">
+                <constraints nullable="false" foreignKeyName="fk_user_role" references="role(id)" />
+            </column>
+
+            <column name="name" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="email" type="varchar(200)">
+                <constraints unique="true" />
+            </column>
+
+            <column name="password" type="varchar(200)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="active" type="boolean" defaultValueBoolean="true"/>
+
+        </createTable>
+
+        <insert tableName="user">
+            <column name="role" valueComputed="(SELECT id FROM role WHERE type='ADMIN')" />
+            <column name="name" value="Max"/>
+            <column name="email" value="admin@admin.ru"/>
+            <column name="password" value="1"/>  <!--c4ca4238a0b923820dcc509a6f75849b-->
+            <column name="active" value="true"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="role" valueComputed="(SELECT id FROM role WHERE type='BANK')" />
+            <column name="name" value="Elena"/>
+            <column name="email" value="Elena@bank.ru"/>
+            <column name="password" value="2"/>  <!--c81e728d9d4c2f636f067f89cc14862c-->
+            <column name="active" value="true"/>
+        </insert>
+
+        <insert tableName="user">
+            <column name="role" valueComputed="(SELECT id FROM role WHERE type='CLIENT')" />
+            <column name="name" value="Alex"/>
+            <column name="email" value="Alex@home.ru"/>
+            <column name="password" value="3"/>  <!--eccbc87e4b5ce2fe28308fd9f2a7baf3-->
+            <column name="active" value="true"/>
+        </insert>
+
+        <!-- TODO создать остальные таблицы -->
+    </changeSet>
+
+</databaseChangeLog>
