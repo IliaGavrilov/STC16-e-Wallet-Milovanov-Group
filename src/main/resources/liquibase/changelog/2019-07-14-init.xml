@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2019-07-14-init" author="STC-16_Milovanov_Group">
+
+        <!--TypeOfBankBill-->
+        <createTable tableName="typeofbankbill">
+
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="title" type="varchar(31)">
+                <constraints nullable="false"/>
+            </column>
+
+        </createTable>
+
+        <insert tableName="typeofbankbill">
+            <column name="title" value="Расчётый счёт"/>
+        </insert>
+
+        <insert tableName="typeofbankbill">
+            <column name="title" value="Дебетовый счёт"/>
+        </insert>
+
+        <insert tableName="typeofbankbill">
+            <column name="title" value="Кредитный счёт"/>
+        </insert>
+
+        <insert tableName="typeofbankbill">
+            <column name="title" value="Вклад"/>
+        </insert>
+
+        <!--BankBill-->
+        <createTable tableName="bankbill">
+
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="type" type="int">
+                <constraints nullable="false" foreignKeyName="fk_type_bank_bill" references="typeofbankbill(id)"/>
+            </column>
+
+            <column name="name" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="description" type="varchar(255)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
+
