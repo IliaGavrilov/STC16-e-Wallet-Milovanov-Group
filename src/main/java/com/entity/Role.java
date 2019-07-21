@@ -1,10 +1,16 @@
 package com.entity;
 
+import javax.persistence.*;
+
+@Entity
 public class Role {
-    public int id;
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    public long id;
+    @Column(name = "type")
     public String type;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
