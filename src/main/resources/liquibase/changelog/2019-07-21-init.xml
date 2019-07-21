@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
 
-    <changeSet id="2019-07-17-init" author="STC-16_Milovanov_Group">
+    <changeSet id="2019-07-21-init" author="STC-16_Milovanov_Group">
 
         <addColumn tableName="bankbill">
 
