@@ -16,4 +16,6 @@
 
     <include file="liquibase/changelog/2019-07-20-init.xml"/>
 
+    <include file="liquibase/changelog/2019-07-22-init.xml"/>
+
 </databaseChangeLog>

@@ -10,7 +10,7 @@ import java.util.Set;
 public class User {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private int id;
+    private long id;
     private int role;
     private String name;
     private String email;
@@ -37,7 +37,7 @@ public class User {
         this.password = password;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 

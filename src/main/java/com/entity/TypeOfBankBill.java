@@ -7,11 +7,12 @@ import javax.persistence.*;
 @Table(name = "typeofbankbill")
 public class TypeOfBankBill {
     @Id
-    public int id;
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    public long id;
     @Column(name = "title")
     public String title;
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
