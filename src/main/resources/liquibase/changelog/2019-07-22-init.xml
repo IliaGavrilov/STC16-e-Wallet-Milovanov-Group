@@ -10,11 +10,11 @@
 
         <addColumn tableName="bankbill">
 
-            <column name="numberOfBill" type="int">
+            <column name="number_of_bill" type="int">
                 <constraints nullable="false" unique="true"/>
             </column>
 
-            <column name="percentRate" type="double">
+            <column name="percent_rate" type="double">
                 <constraints nullable="false"/>
             </column>
 

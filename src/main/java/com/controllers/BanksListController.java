@@ -1,26 +1,24 @@
 package com.controllers;
 
-import com.entity.Bank;
-import com.services.GetBankListService;
+import com.services.GetBanksList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class ListOfBanksController {
+public class BanksListController {
 
-    private GetBankListService gbls;
-    private Bank bank;
+    private GetBanksList getBanksList;
 
     @Autowired
-    public ListOfBanksController(GetBankListService gbls) {
-        this.gbls = gbls;
+    public BanksListController(GetBanksList getBanksList) {
+        this.getBanksList = getBanksList;
     }
 
     @RequestMapping(value = "/bank-list")
     public String index(Model model) {
-        model.addAttribute("bankList", gbls.getBank());
+        model.addAttribute("bankList", getBanksList.getBanks());
         return "listOfBanks";
     }
 }

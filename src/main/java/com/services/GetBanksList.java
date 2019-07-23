@@ -6,18 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+/**
+ * Рефакторинг названия класса и методов
+ */
 @Service
-public class GetBankListService {
+public class GetBanksList {
 
     private final BankRepository bankRepository;
 
     @Autowired
-    public GetBankListService(BankRepository bankRepository) {
+    public GetBanksList(BankRepository bankRepository) {
         this.bankRepository = bankRepository;
     }
 
-    public List<Bank> getBank() {
+    public List<Bank> getBanks() {
         return bankRepository.findAll();
     }
 

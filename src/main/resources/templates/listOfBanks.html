@@ -112,19 +112,18 @@
 <!--Bank list-->
 <div class="section">
     <div class="container">
-        <!--/*@thymesVar id="bankList" type="com.controllers.ListOfBanksController"*/-->
+        <!--/*@thymesVar id="bankList" type="com.controllers.BanksListController"*/-->
         <div th:each="bank : ${bankList}" class="row">
             <div class="service-wrapper">
                 <!--/*@thymesVar id="bank" type="com.entity.Bank"*/-->
-                <img th:src="${bank.getName()}" th:alt="${bank.getName()}">
+            <!--<img th:src="${bank.getName()}" th:alt="${bank.getName()}">-->
                 <h3 th:text="${bank.getName()}">BANK NAME</h3>
-                <p th:text="${bank.getDescription()}">Description</p>
-                <a th:href="@{'/bank/'+${bank.getId()}}" class="btn">Узнать больше</a>
+                <p th:text="${bank.getDescription()}">DESCRIPTION</p>
+                <a th:href="@{'/bank-list/bank/'+${bank.getId()}}" class="btn">Узнать больше</a>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- Footer -->
 <div class="footer">

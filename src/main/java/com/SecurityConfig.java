@@ -23,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/greeting", "/login", "/bank-list").permitAll()
+                .antMatchers("/", "/greeting", "/login", "/bank-list**").permitAll()
                 .antMatchers("/client**").hasAnyRole("CLIENT", "BANK", "ADMIN")
                 .antMatchers("/bank**").hasAnyRole("BANK", "ADMIN")
                 .antMatchers("/admin**").hasAnyRole("ADMIN")
@@ -52,11 +52,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(encoder.encode("1"))
                 .roles("ADMIN");
     }
-
-    /*@Bean(name = "bankBean")
-    @Scope(value = "prototype")
-    public Bank bankBean(){
-        return new Bank();
-    }*/
 
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class GetBankByIdService {
+public class GetBankById {
     /**
      * BankRepository, BankBillTypeRepository - jpa репозитории
      */
@@ -24,7 +24,7 @@ public class GetBankByIdService {
      */
 
     @Autowired
-    public GetBankByIdService(BankRepository bankRepository, BankBillTypeRepository bankBillTypeRepository) {
+    public GetBankById(BankRepository bankRepository, BankBillTypeRepository bankBillTypeRepository) {
         this.bankRepository = bankRepository;
         this.bankBillTypeRepository = bankBillTypeRepository;
     }
@@ -35,7 +35,7 @@ public class GetBankByIdService {
      * @return возвращаем объект типа Bank с указанным айди
      */
     public Bank getBankById(Long id) {
-        return bankRepository.findById(Long.valueOf(id)).get();
+        return bankRepository.findById(id).get();
     }
 
     /**

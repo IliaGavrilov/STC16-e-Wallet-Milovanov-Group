@@ -21,5 +21,6 @@
             <column name="name" value="TestBank3"/>
             <column name="description" value="Some desc of test bank 3" />
         </insert>
+
     </changeSet>
 </databaseChangeLog>

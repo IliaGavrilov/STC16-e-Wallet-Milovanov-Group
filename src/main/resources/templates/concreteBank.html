@@ -112,19 +112,24 @@
 <!--Concrete Bank-->
 <div class="section">
     <div class="container">
-        <!--/*@thymesVar id="bankList" type="com.controllers.ListOfBanksController"*/-->
-        <div th:each="bank : ${bankList}" class="row">
+        <!--/*@thymesVar id="bank" type="com.entity.Bank"*/-->
+        <div th:text="${bank.getName()}" class="row">
             <div class="service-wrapper">
-                <!--/*@thymesVar id="bank" type="com.entity.Bank"*/-->
-                <img th:src="${bank.getName()}" th:alt="${bank.getName()}">
                 <h3 th:text="${bank.getName()}">BANK NAME</h3>
-                <p th:text="${bank.getDescription()}">Description</p>
-                <a th:href="@{'/bank/'+${bank.getId()}}" class="btn">Узнать больше</a>
+            </div>
+            <div class="service-wrapper">
+                <p th:text="${bank.getDescription()}">DESCRIPTION</p>
+            </div>
+        </div>
+        <!--/*@thymesVar id="bill_types" type="com.controllers.ConcreteBankController"*/-->
+        <div th:each="bill_type : ${bill_types}" class="row">
+            <div class="service-wrapper">
+                <!--/*@thymesVar id="bill_type" type="com.entity.TypeOfBankBill"*/-->
+                <p th:text="${bill_type.getTitle()}">BILL TYPE</p>
             </div>
         </div>
     </div>
 </div>
-
 
 <!-- Footer -->
 <div class="footer">
