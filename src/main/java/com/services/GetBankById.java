@@ -22,7 +22,6 @@ public class GetBankById {
      * @param bankRepository репозиторий класса Bank
      * @param bankBillTypeRepository репозиторий класса bankBillType
      */
-
     @Autowired
     public GetBankById(BankRepository bankRepository, BankBillTypeRepository bankBillTypeRepository) {
         this.bankRepository = bankRepository;
