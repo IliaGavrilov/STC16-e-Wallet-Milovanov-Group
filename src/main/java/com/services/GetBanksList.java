@@ -9,7 +9,9 @@ import java.util.List;
 
 @Service
 public class GetBanksList {
-
+    /**
+     * spring jpa репозиторий
+     */
     private final BankRepository bankRepository;
 
     /**

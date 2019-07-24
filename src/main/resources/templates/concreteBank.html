@@ -113,13 +113,12 @@
 <div class="section">
     <div class="container">
         <!--/*@thymesVar id="bank" type="com.entity.Bank"*/-->
-        <div th:text="${bank.getName()}" class="row">
+        <div class="row">
             <div class="service-wrapper">
-                <h3 th:text="${bank.getName()}">BANK NAME</h3>
+                <h3 th:text="${bank.getName()}"></h3>
             </div>
-<!--         Не отображается описание банка ПОЧЕМУ ТО?   -->
             <div class="service-wrapper">
-                <p th:text="${bank.getDescription()}">DESCRIPTION</p>
+                <p th:text="${bank.getDescription()}"></p>
             </div>
         </div>
         <!--/*@thymesVar id="bill_types" type="com.controllers.ConcreteBankController"*/-->

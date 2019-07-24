@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class GetBankById {
     /**
-     * BankRepository, BankBillTypeRepository - jpa репозитории
+     * BankRepository, BankBillTypeRepository - spring jpa репозитории
      */
     private final BankRepository bankRepository;
     private final BankBillTypeRepository bankBillTypeRepository;

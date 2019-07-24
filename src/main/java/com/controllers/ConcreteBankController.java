@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 public class ConcreteBankController {
-
+    /**
+     * сервис
+     */
     private GetBankById getBankById;
 
     /**
