@@ -44,8 +44,8 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column name="type" type="int">
-                <constraints nullable="false" foreignKeyName="fk_type_bank_bill" references="typeofbankbill(id)"/>
+            <column name="id_type_of_bank_bill" type="int">
+                <constraints nullable="false" foreignKeyName="fk_type_of_bank_bill_id" references="typeofbankbill(id)"/>
             </column>
 
             <column name="name" type="varchar(50)">

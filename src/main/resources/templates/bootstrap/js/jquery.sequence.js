@@ -219,7 +219,7 @@ Sequence also relies on the following open source scripts:
 				doneLoading();
 			}else{
 				$images.bind('load.imagesLoaded error.imagesLoaded', function(event) {
-					imgLoaded(event.target, event.type === 'error'); // trigger imgLoaded
+					imgLoaded(event.target, event.type === 'templates.css.error'); // trigger imgLoaded
 				}).each(function(i, el) {
 					var src = el.src;
 					var cached = $.data(el, 'imagesLoaded'); // find out if this image has been already checked for status if it was, and src has not changed, call imgLoaded on it

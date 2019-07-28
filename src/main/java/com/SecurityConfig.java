@@ -3,6 +3,7 @@ package com;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
@@ -13,10 +14,16 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/resources/", "/static/", "/resources/css/",
+                "/resources/js/", "/resources/images/**","/resources/bootstrap/**","/resources/fonts/");
+    }
+
+    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/", "/greeting", "/login").permitAll()
+                .antMatchers("/", "/greeting", "/login", "/bank-list**").permitAll()
                 .antMatchers("/client**").hasAnyRole("CLIENT", "BANK", "ADMIN")
                 .antMatchers("/bank**").hasAnyRole("BANK", "ADMIN")
                 .antMatchers("/admin**").hasAnyRole("ADMIN")
@@ -45,4 +52,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .password(encoder.encode("1"))
                 .roles("ADMIN");
     }
+
 }
