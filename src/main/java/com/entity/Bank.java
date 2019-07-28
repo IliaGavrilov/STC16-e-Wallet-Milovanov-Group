@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@Entity(name = "banks")
+@Entity(name = "bank")
 public class Bank {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -19,9 +19,9 @@ public class Bank {
             CascadeType.PERSIST,
             CascadeType.MERGE
     })
-    @JoinTable(name = "banks_users",
-            joinColumns = @JoinColumn(name = "banks_id"),
-            inverseJoinColumns = @JoinColumn(name = "users_id")
+    @JoinTable(name = "bank_users",
+            joinColumns = @JoinColumn(name = "bank_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     @JsonManagedReference
     private Set<User> users = new HashSet<>();

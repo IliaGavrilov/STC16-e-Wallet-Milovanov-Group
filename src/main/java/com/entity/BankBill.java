@@ -9,21 +9,21 @@ public class BankBill {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     public long id;
-    @Column(name = "type")
-    public String type;
+/*    @Column(name = "id_type_of_bank_bill")
+    public Long type;*/
     @Column(name = "name")
     public String name;
-    @Column(name = "numberOfBill", unique = true)
+    @Column(name = "number_of_bill", unique = true)
     public int numberOfBill;
-    @Column (name = "percentRate")
+    @Column (name = "percent_rate")
     public float percentRate;
     @Column (name = "validity")
     public long validity;
     @Column(name = "description")
     public String description;
 
-    @OneToOne(optional = false)
-    @JoinColumn(name="type_bank_bill_id", unique = true, nullable = false, updatable = false)
+    @ManyToOne(cascade = CascadeType.MERGE)
+    @JoinColumn(name="id_type_of_bank_bill")
     private TypeOfBankBill typeOfBankBill;
 
     public long getId() {
@@ -34,13 +34,13 @@ public class BankBill {
         this.id = id;
     }
 
-    public String getType() {
+/*    public Long getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(Long type) {
         this.type = type;
-    }
+    }*/
 
     public String getName() {
         return name;

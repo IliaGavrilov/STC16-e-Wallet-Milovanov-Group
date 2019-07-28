@@ -2,6 +2,7 @@ package com.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "typeofbankbill")
@@ -28,14 +29,14 @@ public class TypeOfBankBill {
         this.id = id;
     }
 
-    @OneToOne(optional = false, mappedBy = "typeOfBankBill")
-    private BankBill bankBill;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "typeOfBankBill")
+    private List<BankBill> bankBill;
 
-    public BankBill getBankBill() {
+    public List<BankBill> getBankBill() {
         return bankBill;
     }
 
-    public void setBankBill(BankBill bankBill) {
+    public void setBankBill(List<BankBill> bankBill) {
         this.bankBill = bankBill;
     }
 }
