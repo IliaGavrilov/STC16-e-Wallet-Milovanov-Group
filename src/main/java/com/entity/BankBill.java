@@ -9,8 +9,8 @@ public class BankBill {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     public long id;
-/*    @Column(name = "id_type_of_bank_bill")
-    public Long type;*/
+    /*    @Column(name = "id_type_of_bank_bill")
+        public Long type;*/
     @Column(name = "name")
     public String name;
     @Column(name = "number_of_bill", unique = true)
