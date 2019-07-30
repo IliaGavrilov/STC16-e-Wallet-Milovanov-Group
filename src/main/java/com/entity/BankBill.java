@@ -14,7 +14,7 @@ public class BankBill {
     @Column(name = "name")
     public String name;
     @Column(name = "number_of_bill", unique = true)
-    public int numberOfBill;
+    public long numberOfBill;
     @Column (name = "percent_rate")
     public float percentRate;
     @Column (name = "validity")
