@@ -34,14 +34,14 @@
         </insert>
 
         <!--User-->
-        <createTable tableName="user">
+        <createTable tableName="users">
 
             <column name="id" type="int" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
             <column name="role" type="int">
-                <constraints nullable="false" foreignKeyName="fk_user_role" references="role(id)" />
+                <constraints nullable="false" foreignKeyName="fk_users_role" references="role(id)" />
             </column>
 
             <column name="name" type="varchar(200)">
@@ -60,7 +60,7 @@
 
         </createTable>
 
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="role" valueComputed="(SELECT id FROM role WHERE type='ADMIN')" />
             <column name="name" value="Max"/>
             <column name="email" value="admin@admin.ru"/>
@@ -68,7 +68,7 @@
             <column name="active" value="true"/>
         </insert>
 
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="role" valueComputed="(SELECT id FROM role WHERE type='BANK')" />
             <column name="name" value="Elena"/>
             <column name="email" value="Elena@bank.ru"/>
@@ -76,7 +76,7 @@
             <column name="active" value="true"/>
         </insert>
 
-        <insert tableName="user">
+        <insert tableName="users">
             <column name="role" valueComputed="(SELECT id FROM role WHERE type='CLIENT')" />
             <column name="name" value="Alex"/>
             <column name="email" value="Alex@home.ru"/>
