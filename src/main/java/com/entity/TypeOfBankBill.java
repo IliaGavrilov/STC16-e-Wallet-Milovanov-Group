@@ -9,6 +9,7 @@ import java.util.List;
 public class TypeOfBankBill {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name = "id")
     public long id;
     @Column(name = "title")
     public String title;
