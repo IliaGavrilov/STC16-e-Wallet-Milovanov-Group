@@ -66,11 +66,11 @@ public class BankBill {
         this.typeOfBankBill = typeOfBankBill;
     }
 
-    public int getNumberOfBill() {
+    public long getNumberOfBill() {
         return numberOfBill;
     }
 
-    public void setNumberOfBill(int numberOfBill) {
+    public void setNumberOfBill(long numberOfBill) {
         this.numberOfBill = numberOfBill;
     }
 
