@@ -15,7 +15,7 @@
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column name="user_id" type="int">
+            <column name="users_id" type="int">
                 <constraints nullable="false"/>
             </column>
 
