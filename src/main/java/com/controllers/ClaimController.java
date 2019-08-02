@@ -1,41 +1,70 @@
 package com.controllers;
+
 import com.entity.Claim;
 import com.entity.User;
-import com.repository.ClaimRepository;
 import com.repository.UserRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.services.ClaimServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("/claim")
 public class ClaimController {
 
-    private final ClaimRepository repository;
-    private final UserRepository userRepository;
+    @Autowired
+    ClaimServiceImpl service;
+    @Autowired
+    UserRepository userRepository;
 
-    public ClaimController(ClaimRepository repository, UserRepository userRepository) {
-        this.repository = repository;
-        this.userRepository = userRepository;
+
+    @GetMapping("/index")
+    public String index(){
+        return "client";
     }
 
-
-    // TODO @PostMapping with @RequestParam int userId, @RequestParam int productId
-    @GetMapping("/add_test")
-    public List<Claim> addAClaim(){
-        User userTest = new User("Name User", "test@mail.ru", "pass");
-        int userId = 1;
-        int productId = 11;
-
-        userRepository.save(userTest);
-        Iterable<User> all = userRepository.findAll();
+    // TODO вытаскивать пользователя из сессии
+    //удалить дефолтное значение
+    @PostMapping()
+//    public void createClaim(@RequestParam("userId") int userId, @RequestParam("bankBillId") int productId){
+    public String  createClaim( Principal principal, @RequestParam("bankBillId") long productId){
+        //дефолтное значение
+        long userId =1l;
         User user = userRepository.findUserById(userId);
-        Claim claim = new Claim( productId);
-        claim.setUser(user);
-        repository.save(claim);
 
-        return repository.findAllByUser(user);
+        service.addClaim(user, productId);
+        return "claimApply";
+    }
+
+    @GetMapping("/all")
+    public String addClaimIndex(Model model){
+        model.addAttribute("bankBillList", service.getAllBills());
+        return "bankBillList";
+    }
+
+    // TODO добавить проверку на права доступа
+    // т.е. не каждый пользователь может с помощью этого запроса увидеть
+    // список запросов другого пользователя
+    @GetMapping
+//    public List<Claim> getAllUserClaims(Principal principal){
+    public List<Claim> getAllUserClaims(@RequestParam("userId") long userId){
+        //дефолтное значение
+        userId =1l;
+
+        return service.getAllUserClaims(userId);
+    }
+
+    @GetMapping("/{id}")
+    public Claim getClaim(@PathVariable long id){
+        return service.getClaimById(id);
+    }
+
+    @PostMapping("/remove")
+    public void removeClaim(@RequestParam("id") int id){
+        service.removeClaimById(id);
     }
 }
