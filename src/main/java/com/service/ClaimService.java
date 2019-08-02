@@ -1,4 +1,4 @@
-package com.services;
+package com.service;
 
 import com.entity.BankBill;
 import com.entity.Claim;

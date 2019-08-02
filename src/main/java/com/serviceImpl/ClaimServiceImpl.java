@@ -1,4 +1,4 @@
-package com.services;
+package com.serviceImpl;
 
 import com.entity.BankBill;
 import com.entity.Claim;
@@ -6,6 +6,7 @@ import com.entity.User;
 import com.repository.BankBillRepository;
 import com.repository.ClaimRepository;
 import com.repository.UserRepository;
+import com.service.ClaimService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

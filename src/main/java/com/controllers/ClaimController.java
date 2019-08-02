@@ -3,7 +3,7 @@ package com.controllers;
 import com.entity.Claim;
 import com.entity.User;
 import com.repository.UserRepository;
-import com.services.ClaimServiceImpl;
+import com.serviceImpl.ClaimServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
