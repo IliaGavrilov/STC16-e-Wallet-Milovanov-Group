@@ -1,6 +1,6 @@
 package com.controllers;
 
-import com.services.GetBanksList;
+import com.serviceImpl.GetBanksListServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,13 +11,13 @@ public class BanksListController {
     /**
      * сервис
      */
-    private GetBanksList getBanksList;
+    private GetBanksListServiceImpl getBanksList;
     /**
      * Autowired Конструктор
      * @param getBanksList подключаем сервис для получения данных
      */
     @Autowired
-    public BanksListController(GetBanksList getBanksList) {
+    public BanksListController(GetBanksListServiceImpl getBanksList) {
         this.getBanksList = getBanksList;
     }
 
