@@ -1,6 +1,6 @@
 package com.controllers;
 
-import com.services.GetBankById;
+import com.serviceImpl.GetBankByIdServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,14 +12,14 @@ public class ConcreteBankController {
     /**
      * сервис
      */
-    private GetBankById getBankById;
+    private GetBankByIdServiceImpl getBankById;
 
     /**
      * Autowired Конструктор
      * @param getBankById подключаем сервис для получения данных
      */
     @Autowired
-    public ConcreteBankController(GetBankById getBankById) {
+    public ConcreteBankController(GetBankByIdServiceImpl getBankById) {
         this.getBankById = getBankById;
     }
 

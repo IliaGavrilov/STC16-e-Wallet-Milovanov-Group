@@ -1,16 +1,17 @@
-package com.services;
+package com.serviceImpl;
 
 import com.entity.Bank;
 import com.entity.TypeOfBankBill;
 import com.repository.BankBillTypeRepository;
 import com.repository.BankRepository;
+import com.service.GetBankByIdService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class GetBankById {
+public class GetBankByIdServiceImpl implements GetBankByIdService {
     /**
      * BankRepository, BankBillTypeRepository - spring jpa репозитории
      */
@@ -23,7 +24,7 @@ public class GetBankById {
      * @param bankBillTypeRepository репозиторий класса bankBillType
      */
     @Autowired
-    public GetBankById(BankRepository bankRepository, BankBillTypeRepository bankBillTypeRepository) {
+    public GetBankByIdServiceImpl(BankRepository bankRepository, BankBillTypeRepository bankBillTypeRepository) {
         this.bankRepository = bankRepository;
         this.bankBillTypeRepository = bankBillTypeRepository;
     }

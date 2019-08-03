@@ -1,14 +1,15 @@
-package com.services;
+package com.serviceImpl;
 
 import com.entity.Bank;
 import com.repository.BankRepository;
+import com.service.GetBanksListService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class GetBanksList {
+public class GetBanksListServiceImpl implements GetBanksListService {
     /**
      * spring jpa репозиторий
      */
@@ -20,7 +21,7 @@ public class GetBanksList {
      * @param bankRepository
      */
     @Autowired
-    public GetBanksList(BankRepository bankRepository) {
+    public GetBanksListServiceImpl(BankRepository bankRepository) {
         this.bankRepository = bankRepository;
     }
 

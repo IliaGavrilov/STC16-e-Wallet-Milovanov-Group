@@ -7,14 +7,14 @@ public class Claim {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long id;
-    private int productId;
+    private long id;
+    private long productId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "users_id")
     private User user;
 
-    public Claim(int productId) {
+    public Claim(long productId) {
         this.productId = productId;
     }
 
@@ -33,7 +33,7 @@ public class Claim {
         return id;
     }
 
-    public int getProductId() {
+    public long getProductId() {
         return productId;
     }
 
