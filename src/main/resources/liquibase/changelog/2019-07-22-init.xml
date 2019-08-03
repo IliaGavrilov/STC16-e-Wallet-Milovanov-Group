@@ -10,7 +10,7 @@
 
         <addColumn tableName="bankbill">
 
-            <column name="number_of_bill" type="int">
+            <column name="number_of_bill" type="bigint">
                 <constraints nullable="false" unique="true"/>
             </column>
 

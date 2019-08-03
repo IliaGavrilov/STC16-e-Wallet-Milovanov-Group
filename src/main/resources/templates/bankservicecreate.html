@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+
+
+    <meta charset="UTF-8">
+    <title>Агрегатор банковских счетов</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="../bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<h2>Форма создания банковского продукта</h2>
+<form method="post" th:action="${formAction}" th:object="${bankBill}">
+    <div>
+        <label>Тип счёта:</label>
+        <select class="custom-select" th:field="*{typeOfBankBill}">
+            <option value="">Выберите тип счёта</option>
+            <option th:value="1">Расчётный счёт</option>
+            <option th:value="2">Дебетовый счёт</option>
+            <option th:value="3">Кредитный счёт</option>
+            <option th:value="4">Вклад</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Наименование: </label>
+        <input type="text" th:field="*{name}"/>
+    </div>
+    <br/>
+    <div>
+        <label>Процентная ставка: </label>
+        <input type="text" th:field="*{percentRate}"/>
+    </div>
+    <br/>
+    <div>
+        <label>Срок дейтсвия: </label>
+        <input type="text" th:field="*{validity}"/>
+    </div>
+    <br/>
+    <div>
+        <label>Описание: </label>
+        <input type="text" th:field="*{description}"/>
+    </div>
+    <br/>
+    <div>
+        <button type="submit" class="btn btn-primary submit">Создать</button>
+    </div>
+
+    <!--    th:name="addService" th:text="*{addService}"-->
+</form>
+
+
+<!-- Javascripts -->
+<script src="../bootstrap/js/jquery-3.4.1.min.js"></script>
+<script src="../bootstrap/js/popper.min.js"></script>
+<script>window.jQuery || document.write('<script src="../bootstrap/js/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="../bootstrap/js/bootstrap.js"></script>
+<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
+<script src="../bootstrap/js/jquery.fitvids.js"></script>
+<script src="../bootstrap/js/jquery.sequence-min.js"></script>
+<script src="../bootstrap/js/jquery.bxslider.js"></script>
+
+</body>
