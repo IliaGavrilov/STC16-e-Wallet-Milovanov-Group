@@ -11,15 +11,19 @@
         <!--TypeOfBankBill-->
         <createTable tableName="claim">
 
-            <column name="id" type="int" autoIncrement="true">
+            <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
 
-            <column name="users_id" type="int">
+            <column name="users_id" type="bigint">
                 <constraints nullable="false"/>
             </column>
 
-            <column name="product_id" type="int">
+            <column name="bankbill_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="status" type="char(20)">
                 <constraints nullable="false"/>
             </column>
 
