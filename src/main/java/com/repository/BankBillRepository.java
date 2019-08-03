@@ -12,6 +12,6 @@ import java.util.List;
 @Repository
 public interface BankBillRepository extends JpaRepository<BankBill, Long> {
 
-    List<BankBill> bankBills = new ArrayList<BankBill>();
+    List<BankBill> bankBills = new ArrayList<>();
 
 }
