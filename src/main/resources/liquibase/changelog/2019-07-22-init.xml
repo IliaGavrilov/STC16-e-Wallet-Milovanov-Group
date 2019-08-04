@@ -10,10 +10,6 @@
 
         <addColumn tableName="bankbill">
 
-            <column name="number_of_bill" type="bigint">
-                <constraints nullable="false" unique="true"/>
-            </column>
-
             <column name="percent_rate" type="double">
                 <constraints nullable="false"/>
             </column>

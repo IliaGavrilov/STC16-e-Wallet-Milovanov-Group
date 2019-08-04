@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BankBillRepository extends JpaRepository<BankBill, Long> {
+    BankBill findDistinctById(long bankBillId);
 }

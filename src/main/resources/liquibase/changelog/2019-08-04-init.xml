@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2019-08-04-init" author="STC-16_Milovanov_Group">
+
+        <!--TypeOfBankBill-->
+        <createTable tableName="userproduct">
+
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+
+            <column name="users_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="bankbill_id" type="int">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="number_of_bill" type="bigint">
+                <constraints nullable="false" unique="true"/>
+            </column>
+
+        </createTable>
+
+        <insert tableName="userproduct">
+            <column name="users_id" value="1"/>
+            <column name="bankbill_id" value="2"/>
+            <column name="number_of_bill" value="555666"/>
+        </insert>
+
+        <insert tableName="userproduct">
+            <column name="users_id" value="1"/>
+            <column name="bankbill_id" value="3"/>
+            <column name="number_of_bill" value="2323232"/>
+        </insert>
+
+
+    </changeSet>
+</databaseChangeLog>
+

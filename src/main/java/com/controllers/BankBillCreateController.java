@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.sql.Timestamp;
-import java.util.Calendar;
-import java.util.Date;
-
 
 @Controller
 
@@ -56,7 +52,6 @@ public class BankBillCreateController {
      */
     @RequestMapping(value = "/bankservicecreate", method = RequestMethod.POST)
     public ModelAndView addServiceSave(@ModelAttribute BankBill bankBill){
-        bankBill.setNumberOfBill( new Timestamp( System.currentTimeMillis() ).getTime() );
         bankBillCreate.save( bankBill );
         return new ModelAndView( "/bankservicecreate" );
     }

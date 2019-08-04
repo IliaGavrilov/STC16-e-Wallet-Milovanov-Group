@@ -13,7 +13,6 @@
             <column name="id_type_of_bank_bill" value="1"/>
             <column name="name" value="TestName1"/>
             <column name="description" value="Some desc of test name 1" />
-            <column name="number_of_bill" value="123"/>
             <column name="percent_rate" value="50.0"/>
             <column name="validity" value="1"/>
         </insert>
@@ -21,7 +20,6 @@
             <column name="id_type_of_bank_bill" value="2"/>
             <column name="name" value="TestName2"/>
             <column name="description" value="Some desc of test name 2"/>
-            <column name="number_of_bill" value="1234"/>
             <column name="percent_rate" value="50.0"/>
             <column name="validity" value="1"/>
         </insert>
@@ -29,7 +27,6 @@
             <column name="id_type_of_bank_bill" value="3"/>
             <column name="name" value="TestName3"/>
             <column name="description" value="Some desc of test name 3" />
-            <column name="number_of_bill" value="12345"/>
             <column name="percent_rate" value="30.0"/>
             <column name="validity" value="0"/>
         </insert>
@@ -37,7 +34,6 @@
             <column name="id_type_of_bank_bill" value="4"/>
             <column name="name" value="TestName4"/>
             <column name="description" value="Some desc of test name 4" />
-            <column name="number_of_bill" value="123456"/>
             <column name="percent_rate" value="30.0"/>
             <column name="validity" value="0"/>
         </insert>

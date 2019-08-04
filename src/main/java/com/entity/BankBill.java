@@ -9,12 +9,10 @@ public class BankBill {
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     public long id;
-    /*    @Column(name = "id_type_of_bank_bill")
-        public Long type;*/
+
     @Column(name = "name")
     public String name;
-    @Column(name = "number_of_bill", unique = true)
-    public long numberOfBill;
+
     @Column (name = "percent_rate")
     public float percentRate;
     @Column (name = "validity")
@@ -33,14 +31,6 @@ public class BankBill {
     public void setId(int id) {
         this.id = id;
     }
-
-/*    public Long getType() {
-        return type;
-    }
-
-    public void setType(Long type) {
-        this.type = type;
-    }*/
 
     public String getName() {
         return name;
@@ -64,14 +54,6 @@ public class BankBill {
 
     public void setTypeOfBankBill(TypeOfBankBill typeOfBankBill) {
         this.typeOfBankBill = typeOfBankBill;
-    }
-
-    public long getNumberOfBill() {
-        return numberOfBill;
-    }
-
-    public void setNumberOfBill(long numberOfBill) {
-        this.numberOfBill = numberOfBill;
     }
 
     public float getPercentRate() {
