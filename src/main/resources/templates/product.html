@@ -1,47 +1,39 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Проект - агрегатор банковских счетов</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-
-    <link rel="stylesheet" th:href="@{/bootstrap/css/bootstrap.css}">
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,600,800' rel='stylesheet' type='text/css'>
-
-    <link rel="stylesheet" th:href="@{/css/leaflet.css}"/>
-    <!--[if lte IE 8] -->
-    <link rel="stylesheet" th:href="@{/css/leaflet.ie.css/}">
-    <!--[endif]-->
-    <link rel="stylesheet" th:href="@{/css/main.css}">
-    <link rel="stylesheet" th:href="@{/css/style.css}">
-
-    <script th:src="@{bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js}"></script>
-</head>
+<head th:replace="inc/head.inc::head"></head>
 
 <body>
+<!--[if lt IE 8]-->
+<!--    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]-->
 <!--[if lt IE 7]>
 <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade
     your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to
     improve your experience.</p>
 <![endif]-->
 
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
 
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
 
 <!--Bank list-->
 <div class="section">
     <div class="container">
         <!--/*@thymesVar id="bankList" type="com.controllers.BanksListController"*/-->
+<!--            <tr th:if="${allUserProduct == null}">-->
+<!--                <td colspan="2"> No Data Available </td>-->
+<!--            </tr>-->
         <div th:each="product : ${allUserProduct}" class="row">
             <div class="service-wrapper">
                 <!--/*@thymesVar id="bank" type="com.entity.Bank"*/-->
@@ -54,6 +46,21 @@
         </div>
     </div>
 </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
+
+<!--</div>-->
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
 
 </body>
 </html>

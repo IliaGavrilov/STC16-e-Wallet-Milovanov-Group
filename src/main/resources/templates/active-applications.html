@@ -1,0 +1,236 @@
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="inc/head.inc::head"></head>
+
+<body>
+<!--[if lt IE 8]-->
+<!--    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]-->
+
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
+
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
+
+
+<!--<tr th:each="user : ${users}">-->
+<!--    <td th:text="${user.name}"></td>-->
+<!--    <td><a href="#" th:text="${user.title}">Title ...</a></td>-->
+<!--    <td th:text="${user.text}">Text ...</td>-->
+<!--</tr>-->
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+
+<!--                <div class="tab-pane fade" id="bank-product" role="tabpanel" aria-labelledby="bank-product">-->
+<!--                    <h2>Форма создания банковского продукта</h2>-->
+<!--                    &lt;!&ndash;/*@thymesVar id="BankBill" type="com.entity.BankBill"*/&ndash;&gt;-->
+
+<!--                    <form th:action="@{/bankbillcreate}" th:object="${BankBill}">-->
+<!--                        <div class="service-wrapper">-->
+<!--                            <label>Тип счёта:</label>-->
+<!--                            <select class="custom-select" th:field="*{typeOfBankBill}">-->
+<!--                                <option value="">Выберите тип счёта</option>-->
+<!--                                <option th:value="1">Расчётный счёт</option>-->
+<!--                                <option th:value="2">Дебетовый счёт</option>-->
+<!--                                <option th:value="3">Кредитный счёт</option>-->
+<!--                                <option th:value="4">Вклад</option>-->
+<!--                            </select>-->
+<!--                        </div>-->
+
+<!--                        <div>-->
+<!--                            <label>Наименование: </label>-->
+<!--                            <input type="text" th:field="${bankBill.name}"/>-->
+<!--                        </div>-->
+<!--                        <br/>-->
+<!--                        <div>-->
+<!--                            <label>Процентная ставка: </label>-->
+<!--                            <input type="text" th:field="${bankBill.percentRate}"/>-->
+<!--                        </div>-->
+<!--                        <br/>-->
+<!--                        <div>-->
+<!--                            <label>Срок дейтсвия: </label>-->
+<!--                            <input type="text" th:field="${bankBill.validity}"/>-->
+<!--                        </div>-->
+<!--                        <br/>-->
+<!--                        <div>-->
+<!--                            <label>Описание: </label>-->
+<!--                            <input type="text" th:field="${bankBill.description}"/>-->
+<!--                        </div>-->
+<!--                        <br/>-->
+<!--                        &lt;!&ndash;/*@thymesVar id="BankBillCreate" type="com.services.BankBillCreate"*/&ndash;&gt;-->
+<!--                        <button th:action="@{/saveBankBill}">Создать</button>-->
+<!--                    </form>-->
+
+<!--                    <h2>Продукты</h2>-->
+<!--                    <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">-->
+<!--                                <div class="form-group row">-->
+<!--                                    <label class="col-sm-3 col-form-label">Наименование:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какое-то наименование банковского продукта</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Описание:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какой-то очень важный и серьезный банквский продукт, предназначенный-->
+<!--                                        ддля великой цели по улучшению жизни человека</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <button type="button" class="btn btn-red">Удалить</button>-->
+<!--                        </li>-->
+<!--                        <li class="list-group-item">-->
+<!--                                <div class="form-group row">-->
+<!--                                    <label class="col-sm-3 col-form-label">Наименование:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какое-то наименование банковского продукта</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Описание:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какой-то очень важный и серьезный банквский продукт, предназначенный-->
+<!--                                            ддля великой цели по улучшению жизни человека</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <button type="button" class="btn btn-red">Удалить</button>-->
+<!--                        </li>-->
+<!--                        <li class="list-group-item">-->
+<!--                            <div class="form-group row">-->
+<!--                                <label class="col-sm-3 col-form-label">Наименование:</label>-->
+<!--                                <div class="col-sm-9">-->
+<!--                                    <p class="form-control-static">Какое-то наименование банковского продукта</p>-->
+<!--                                </div>-->
+<!--                                <label class="col-sm-3 col-form-label">Описание:</label>-->
+<!--                                <div class="col-sm-9">-->
+<!--                                    <p class="form-control-static">Какой-то очень важный и серьезный банквский продукт, предназначенный-->
+<!--                                        ддля великой цели по улучшению жизни человека</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn btn-red">Удалить</button>-->
+<!--                        </li>-->
+<!--                        <li class="list-group-item">-->
+<!--                            <div class="form-group row">-->
+<!--                                <label class="col-sm-3 col-form-label">Наименование:</label>-->
+<!--                                <div class="col-sm-9">-->
+<!--                                    <p class="form-control-static">Какое-то наименование банковского продукта</p>-->
+<!--                                </div>-->
+<!--                                <label class="col-sm-3 col-form-label">Описание:</label>-->
+<!--                                <div class="col-sm-9">-->
+<!--                                    <p class="form-control-static">Какой-то очень важный и серьезный банквский продукт, предназначенный-->
+<!--                                        ддля великой цели по улучшению жизни человека</p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <button type="button" class="btn btn-red">Удалить</button>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+
+<!--                <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application">-->
+                    <h2>Заявки</h2>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">
+                            <form>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Какое-то имя</p>
+                                    </div>
+                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Какая-то фамилия</p>
+                                    </div>
+                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Visa</p>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-green">Одобрить</button>
+                                <button type="submit" class="btn btn-red">Отклонить</button>
+                            </form>
+                        </li>
+                        <li class="list-group-item">
+                            <form>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Какое-то имя</p>
+                                    </div>
+                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Какая-то фамилия</p>
+                                    </div>
+                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Visa</p>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-green">Одобрить</button>
+                                <button type="submit" class="btn btn-red">Отклонить</button>
+                            </form>
+                        </li>
+                        <li class="list-group-item">
+                            <form>
+                                <div class="form-group row">
+                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Какое-то имя</p>
+                                    </div>
+                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Какая-то фамилия</p>
+                                    </div>
+                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
+                                    <div class="col-sm-9">
+                                        <p class="form-control-static">Visa</p>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-green">Одобрить</button>
+                                <button type="submit" class="btn btn-red">Отклонить</button>
+                            </form>
+                        </li>
+                    </ul>
+<!--                </div>-->
+
+
+<!--                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">-->
+<!--                    ...-->
+<!--                </div>-->
+
+
+<!--                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">-->
+<!--                    <div class="media">-->
+<!--                        <img src="img/Icon-User.png" class="mr-1" alt="user ava">-->
+<!--                        <div class="media-body align-items-center align-middle">-->
+<!--                            <label for="first-name" class="col-sm-3 col-form-label">Имя пользователя:</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <p id="first-name" class="form-control-static">Какое-то имя</p>-->
+<!--                            </div>-->
+<!--                            <label for="last-name" class="col-sm-3 col-form-label">Фамилия пользователя:</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <p id="last-name" class="form-control-static">Какая-то фамилия</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+                </div>
+                </div>
+            </div>
+        </div>
+<!--    </div>-->
+
+
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
+
+<!--</div>-->
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
+
+</body>
+</html>
