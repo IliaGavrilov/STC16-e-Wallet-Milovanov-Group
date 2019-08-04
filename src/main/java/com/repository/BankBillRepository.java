@@ -13,5 +13,6 @@ import java.util.List;
 public interface BankBillRepository extends JpaRepository<BankBill, Long> {
 
     List<BankBill> bankBills = new ArrayList<>();
+    BankBill findDistinctById(long bankBillId);
 
 }
