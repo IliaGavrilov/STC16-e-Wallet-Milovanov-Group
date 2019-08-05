@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
-<head>
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
+<head th:replace="inc/head.inc::head"></head>
 
-    <meta charset="UTF-8">
-    <title>Агрегатор банковских счетов</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="../bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
 <body>
+<!--[if lt IE 8]-->
+<!--    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]-->
+
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
+
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+
 <h2>Форма создания банковского продукта</h2>
 <form method="post" th:action="${formAction}" th:object="${bankBill}">
     <div>
@@ -62,15 +62,18 @@
     <!--    th:name="addService" th:text="*{addService}"-->
 </form>
 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
 
-<!-- Javascripts -->
-<script src="../bootstrap/js/jquery-3.4.1.min.js"></script>
-<script src="../bootstrap/js/popper.min.js"></script>
-<script>window.jQuery || document.write('<script src="../bootstrap/js/jquery-3.4.1.min.js"><\/script>')</script>
-<script src="../bootstrap/js/bootstrap.js"></script>
-<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
-<script src="../bootstrap/js/jquery.fitvids.js"></script>
-<script src="../bootstrap/js/jquery.sequence-min.js"></script>
-<script src="../bootstrap/js/jquery.bxslider.js"></script>
+<!--</div>-->
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
 
 </body>
+</html>

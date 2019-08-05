@@ -15,6 +15,8 @@ public class Bank {
 	private String name;
 	private String description;
 
+	public Bank() {
+	}
 
 	@ManyToMany(cascade = {
 			CascadeType.PERSIST,

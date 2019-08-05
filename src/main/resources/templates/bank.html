@@ -1,54 +1,35 @@
-<!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
 
+<head th:replace="inc/head.inc::head"></head>
 
-    <meta charset="UTF-8">
-    <title>Агрегатор банковских счетов</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Nunito:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="css/main.css">
-    <script src="../bootstrap/js/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-</head>
 <body>
+<!--[if lt IE 8]-->
+<!--    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]-->
 
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h3 class="my-0 mr-md-auto font-weight-bold">Агрегатор банковских счетов</h3>
-    <a class="btn btn-outline-primary" href="#">Выход</a>
-</div>
-<div class="container-fluid wrapper">
-    <div class="row">
-        <div class="col-3">
-            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-                <a class="nav-link active" id="home-tab" data-toggle="pill" href="#home" role="tab"
-                   aria-controls="v-pills-home" aria-selected="true">Главная</a>
-                <a class="nav-link" id="bank-product-tab" data-toggle="pill" href="#bank-product" role="tab"
-                   aria-controls="bank-product" aria-selected="false">Банковские продукты</a>
-                <a class="nav-link" id="application-tab" data-toggle="pill" href="#application" role="tab"
-                   aria-controls="application" aria-selected="false">Заявки</a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                   aria-controls="v-pills-messages" aria-selected="false">Чат</a>
-                <a class="nav-link" id="profile-tab" data-toggle="pill" href="#profile" role="tab"
-                   aria-controls="profile" aria-selected="false">Профиль</a>
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
 
-            </div>
-        </div>
-        <div class="col-9">
-            <div class="tab-content" id="v-pills-tabContent">
-                <div class="tab-pane fade show active" id="home" role="tabpanel"
-                     aria-labelledby="home">
-                    <p>Добро пожаловать!</p>
-                </div>
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
 
 
-                <div class="tab-pane fade" id="bank-product" role="tabpanel" aria-labelledby="bank-product">
+<!--<tr th:each="user : ${users}">-->
+<!--    <td th:text="${user.name}"></td>-->
+<!--    <td><a href="#" th:text="${user.title}">Title ...</a></td>-->
+<!--    <td th:text="${user.text}">Text ...</td>-->
+<!--</tr>-->
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+
+<!--                <div class="tab-pane fade" id="bank-product" role="tabpanel" aria-labelledby="bank-product">-->
 <!--                    <h2>Форма создания банковского продукта</h2>-->
 <!--                    &lt;!&ndash;/*@thymesVar id="BankBill" type="com.entity.BankBill"*/&ndash;&gt;-->
 
@@ -149,107 +130,107 @@
                     </ul>
                 </div>
 
-                <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application">
-                    <h2>Заявки</h2>
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <form>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какое-то имя</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какая-то фамилия</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Visa</p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-green">Одобрить</button>
-                                <button type="submit" class="btn btn-red">Отклонить</button>
-                            </form>
-                        </li>
-                        <li class="list-group-item">
-                            <form>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какое-то имя</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какая-то фамилия</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Visa</p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-green">Одобрить</button>
-                                <button type="submit" class="btn btn-red">Отклонить</button>
-                            </form>
-                        </li>
-                        <li class="list-group-item">
-                            <form>
-                                <div class="form-group row">
-                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какое-то имя</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Какая-то фамилия</p>
-                                    </div>
-                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>
-                                    <div class="col-sm-9">
-                                        <p class="form-control-static">Visa</p>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-green">Одобрить</button>
-                                <button type="submit" class="btn btn-red">Отклонить</button>
-                            </form>
-                        </li>
-                    </ul>
+<!--                <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application">-->
+<!--                    <h2>Заявки</h2>-->
+<!--                    <ul class="list-group list-group-flush">-->
+<!--                        <li class="list-group-item">-->
+<!--                            <form>-->
+<!--                                <div class="form-group row">-->
+<!--                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какое-то имя</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какая-то фамилия</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Visa</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <button type="submit" class="btn btn-green">Одобрить</button>-->
+<!--                                <button type="submit" class="btn btn-red">Отклонить</button>-->
+<!--                            </form>-->
+<!--                        </li>-->
+<!--                        <li class="list-group-item">-->
+<!--                            <form>-->
+<!--                                <div class="form-group row">-->
+<!--                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какое-то имя</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какая-то фамилия</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Visa</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <button type="submit" class="btn btn-green">Одобрить</button>-->
+<!--                                <button type="submit" class="btn btn-red">Отклонить</button>-->
+<!--                            </form>-->
+<!--                        </li>-->
+<!--                        <li class="list-group-item">-->
+<!--                            <form>-->
+<!--                                <div class="form-group row">-->
+<!--                                    <label class="col-sm-3 col-form-label">Имя пользователя:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какое-то имя</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Фамилия пользователя:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Какая-то фамилия</p>-->
+<!--                                    </div>-->
+<!--                                    <label class="col-sm-3 col-form-label">Банковский продукт:</label>-->
+<!--                                    <div class="col-sm-9">-->
+<!--                                        <p class="form-control-static">Visa</p>-->
+<!--                                    </div>-->
+<!--                                </div>-->
+<!--                                <button type="submit" class="btn btn-green">Одобрить</button>-->
+<!--                                <button type="submit" class="btn btn-red">Отклонить</button>-->
+<!--                            </form>-->
+<!--                        </li>-->
+<!--                    </ul>-->
+<!--                </div>-->
+
+
+<!--                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">-->
+<!--                    ...-->
+<!--                </div>-->
+
+
+<!--                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">-->
+<!--                    <div class="media">-->
+<!--                        <img src="img/Icon-User.png" class="mr-1" alt="user ava">-->
+<!--                        <div class="media-body align-items-center align-middle">-->
+<!--                            <label for="first-name" class="col-sm-3 col-form-label">Имя пользователя:</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <p id="first-name" class="form-control-static">Какое-то имя</p>-->
+<!--                            </div>-->
+<!--                            <label for="last-name" class="col-sm-3 col-form-label">Фамилия пользователя:</label>-->
+<!--                            <div class="col-sm-9">-->
+<!--                                <p id="last-name" class="form-control-static">Какая-то фамилия</p>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
                 </div>
-
-
-                <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
-                    ...
-                </div>
-
-
-                <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-                    <div class="media">
-                        <img src="img/Icon-User.png" class="mr-1" alt="user ava">
-                        <div class="media-body align-items-center align-middle">
-                            <label for="first-name" class="col-sm-3 col-form-label">Имя пользователя:</label>
-                            <div class="col-sm-9">
-                                <p id="first-name" class="form-control-static">Какое-то имя</p>
-                            </div>
-                            <label for="last-name" class="col-sm-3 col-form-label">Фамилия пользователя:</label>
-                            <div class="col-sm-9">
-                                <p id="last-name" class="form-control-static">Какая-то фамилия</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
+<!--    </div>-->
 
 
-<!-- Javascripts -->
-<script src="../bootstrap/js/jquery-3.4.1.min.js"></script>
-<script src="../bootstrap/js/popper.min.js"></script>
-<script>window.jQuery || document.write('<script src="../bootstrap/js/jquery-3.4.1.min.js"><\/script>')</script>
-<script src="../bootstrap/js/bootstrap.js"></script>
-<script src="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.js"></script>
-<script src="../bootstrap/js/jquery.fitvids.js"></script>
-<script src="../bootstrap/js/jquery.sequence-min.js"></script>
-<script src="../bootstrap/js/jquery.bxslider.js"></script>
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
+
+<!--</div>-->
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
 
 </body>
+</html>

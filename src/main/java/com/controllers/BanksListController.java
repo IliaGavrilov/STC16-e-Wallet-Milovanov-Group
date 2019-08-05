@@ -29,6 +29,6 @@ public class BanksListController {
     @RequestMapping(value = "/bank-list")
     public String index(Model model) {
         model.addAttribute("bankList", getBanksList.getBanks());
-        return "listOfBanks";
+        return "bank-list";
     }
 }

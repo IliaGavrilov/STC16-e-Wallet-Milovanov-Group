@@ -53,6 +53,7 @@ public class BankBillCreateController {
     @RequestMapping(value = "/bankservicecreate", method = RequestMethod.POST)
     public ModelAndView addServiceSave(@ModelAttribute BankBill bankBill){
         bankBillCreate.save( bankBill );
+
         return new ModelAndView( "/bankservicecreate" );
     }
 }
