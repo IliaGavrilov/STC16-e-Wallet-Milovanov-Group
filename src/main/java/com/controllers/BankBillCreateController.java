@@ -1,13 +1,12 @@
 package com.controllers;
 
 import com.entity.BankBill;
+import com.serviceImpl.QuickSortingServiceImpl;
 import com.services.BankBillCreate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
@@ -17,6 +16,9 @@ public class BankBillCreateController {
 
     @Autowired
     private final BankBillCreate bankBillCreate;
+
+    @Autowired
+    private QuickSortingServiceImpl sortingService;
 
     public BankBillCreateController(BankBillCreate bankBillCreate) {
         this.bankBillCreate = bankBillCreate;
@@ -55,6 +57,22 @@ public class BankBillCreateController {
         bankBillCreate.save( bankBill );
 
         return new ModelAndView( "/bankservicecreate" );
+    }
+
+    /**
+     * получить список банковских услуг с сортировкой
+     * по умолчанию сортировка ASC
+     * @param model
+     * @param sort
+     * @param field
+     * @return
+     */
+    @GetMapping("/bankbill/list")
+    public String getBankBillSortList(Model model, @RequestParam(value="sort", required=false, defaultValue="ASC") String sort,
+                                      @RequestParam(value="field", required=false, defaultValue="id") String field){
+
+        model.addAttribute("bankBillList", sortingService.findAllWithSort(sort, field));
+        return "bankBillList";
     }
 }
 
