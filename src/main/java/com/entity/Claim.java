@@ -9,22 +9,24 @@ public class Claim {
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "bankbill_id")
-    private long bankBillId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "bankbill_id")
+    private BankBill bankBill;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private StatusEnum status = StatusEnum.In_Question;
 
-    private enum StatusEnum{Accept, In_Question, Negative}
+	public enum StatusEnum{Accept, In_Question, Negative}
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "users_id")
     private User user;
 
+    public Claim(){}
 
-    public Claim(long bankBillId) {
-        this.bankBillId = bankBillId;
+    public Claim(BankBill bankBill) {
+        this.bankBill = bankBill;
     }
 
     public User getUser() {
@@ -39,12 +41,12 @@ public class Claim {
         return id;
     }
 
-    public long getbankBillId() {
-        return bankBillId;
+    public BankBill getBankBill() {
+        return bankBill;
     }
 
-    public void setbankBillId(long bankBillId) {
-        this.bankBillId = bankBillId;
+    public void setBankBill(BankBill bankBillId) {
+        this.bankBill = bankBillId;
     }
 
     public StatusEnum getStatus() {
