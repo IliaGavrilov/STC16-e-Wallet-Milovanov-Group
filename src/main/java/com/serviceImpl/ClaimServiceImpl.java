@@ -10,6 +10,7 @@ import com.service.ClaimService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,14 +28,14 @@ public class ClaimServiceImpl implements ClaimService {
     private BankBillRepository bankBillRepository;
 
     @Override
-    public void addClaim(User user, long productId) {
+    public void addClaim(User user, BankBill productId) {
         Claim claim = new Claim(productId);
         claim.setUser(user);
         repository.save(claim);
     }
 
     @Override
-    public void addClaim(long userId, long productId) {
+    public void addClaim(long userId, BankBill productId) {
         User user = userRepository.findUserById(userId);
         if(user !=null){
             addClaim(user, productId);
@@ -81,5 +82,9 @@ public class ClaimServiceImpl implements ClaimService {
     @Override
     public List<BankBill> getAllBills() {
         return bankBillRepository.findAll();
+    }
+
+    public List<Claim> findAll(){
+        return repository.findAll();
     }
 }
