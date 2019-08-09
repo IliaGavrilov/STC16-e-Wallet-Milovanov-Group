@@ -1,5 +1,6 @@
 package com.controllers;
 
+import com.entity.BankBill;
 import com.entity.Claim;
 import com.entity.User;
 import com.repository.UserRepository;
@@ -31,7 +32,7 @@ public class ClaimController {
     //удалить дефолтное значение
     @PostMapping()
 //    public void createClaim(@RequestParam("userId") int userId, @RequestParam("bankBillId") int productId){
-    public String  createClaim( Principal principal, @RequestParam("bankBillId") long productId){
+    public String  createClaim( Principal principal, @RequestParam("bankBillId") BankBill productId){
         //дефолтное значение
         long userId =1l;
         User user = userRepository.findUserById(userId);
