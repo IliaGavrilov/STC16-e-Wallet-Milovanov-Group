@@ -2,7 +2,7 @@ package com.controllers;
 
 import com.entity.BankBill;
 import com.serviceImpl.QuickSortingServiceImpl;
-import com.services.BankBillCreate;
+import com.serviceImpl.BankBillCreateImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,13 +15,13 @@ import org.springframework.web.servlet.ModelAndView;
 public class BankBillCreateController {
 
     @Autowired
-    private final BankBillCreate bankBillCreate;
+    private final BankBillCreateImpl bankBillCreateImpl;
 
     @Autowired
     private QuickSortingServiceImpl sortingService;
 
-    public BankBillCreateController(BankBillCreate bankBillCreate) {
-        this.bankBillCreate = bankBillCreate;
+    public BankBillCreateController(BankBillCreateImpl bankBillCreateImpl) {
+        this.bankBillCreateImpl = bankBillCreateImpl;
     }
 
     @RequestMapping("/bankservicecreate")
@@ -54,7 +54,7 @@ public class BankBillCreateController {
      */
     @RequestMapping(value = "/bankservicecreate", method = RequestMethod.POST)
     public ModelAndView addServiceSave(@ModelAttribute BankBill bankBill){
-        bankBillCreate.save( bankBill );
+        bankBillCreateImpl.save( bankBill );
 
         return new ModelAndView( "/bankservicecreate" );
     }
