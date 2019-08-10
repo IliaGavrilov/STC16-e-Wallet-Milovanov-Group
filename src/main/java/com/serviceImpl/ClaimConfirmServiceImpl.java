@@ -22,5 +22,9 @@ public class ClaimConfirmServiceImpl implements ClaimConfirmService {
 		claimRepository.findClaimById( claim.getId() ).setStatus( Claim.StatusEnum.Negative );
 	}
 
+	public void setStatus(Claim claim, Claim.StatusEnum status){
+		claim.setStatus(status);
+		claimRepository.save(claim);
+	}
 
 }

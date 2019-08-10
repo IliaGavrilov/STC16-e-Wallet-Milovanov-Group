@@ -42,24 +42,32 @@ public class ClaimConfirmController {
 //		return modelAndView;
 //	}
 
-	@GetMapping("/active-applications")
+	@GetMapping("/active-applications/get")
 	public String showAll(Model model) {
 		Claim claim = new Claim(  );
 		model.addAttribute( "claim", claim );
-		List<Claim> claimList = claimService.findAll();
+//		List<Claim> claimList = claimService.findAll();
+		List<Claim> claimList = claimService.getAllByStatus(Claim.StatusEnum.In_Question);
 		model.addAttribute("claims", claimList);
 		return "active-applications";
 	}
 
-	@RequestMapping(value = "/statusChange", method = RequestMethod.POST, params = "action=apply")
-	public ModelAndView apply(@ModelAttribute Claim claim) {
-		claimConfirmServiceImpl.acceptClaim( claim );
-		return new ModelAndView("/active-applications");
-	}
+//	@RequestMapping(value = "/statusChange", method = RequestMethod.POST, params = "action=apply")
+//	public ModelAndView apply(@ModelAttribute Claim claim) {
+//		claimConfirmServiceImpl.acceptClaim( claim );
+//		return new ModelAndView("/active-applications");
+//	}
+//
+//	@RequestMapping(value = "/statusChange", method = RequestMethod.POST, params = "action=cancel")
+//	public ModelAndView cancel(@ModelAttribute Claim claim) {
+//		claimConfirmServiceImpl.resetClaim( claim );
+//		return new ModelAndView("/active-applications");
+//	}
 
-	@RequestMapping(value = "/statusChange", method = RequestMethod.POST, params = "action=cancel")
-	public ModelAndView cancel(@ModelAttribute Claim claim) {
-		claimConfirmServiceImpl.resetClaim( claim );
+	@PostMapping(value = "/active-applications/statusChange")
+	public ModelAndView cancel(long claimId, String status) {
+		Claim claim = claimService.getClaimById(claimId);
+		claimConfirmServiceImpl.setStatus( claim, Claim.StatusEnum.valueOf(status) );
 		return new ModelAndView("/active-applications");
 	}
 }

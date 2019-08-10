@@ -21,7 +21,7 @@ public class BankBillCreateImpl implements com.service.BankBillCreate {
         return bankBill;
     }
 
-    public User findUserByName(Object name) {
-        return userRepository.findUserByName( name.toString() );
-    }
+//    public User findUserByName(Object name) {
+//        return userRepository.findUserByName( name.toString() );
+//    }
 }
