@@ -25,10 +25,10 @@
                             <div class="col-lg-6 col-md-7 col-sm-6 col-xs-12">
                                 <div class="header-top-menu tabl-d-n">
                                     <ul class="nav navbar-nav mai-top-nav">
-                                        <li class="nav-item"><a href="index" class="nav-link">На главную</a>
+                                        <li class="nav-item"><a href="admin" class="nav-link">Вход</a>
                                         </li>
-<!--                                        <li class="nav-item"><a href="#" class="nav-link">Контакты</a>-->
-<!--                                        </li>-->
+                                        <li class="nav-item"><a href="register" class="nav-link">Регистрация</a>
+                                        </li>
 
                                         <!--                                                <li class="nav-item"><a href="#" class="nav-link">Services</a>-->
                                         <!--                                                </li>-->
@@ -172,38 +172,32 @@
                                         <!--                                                    </div>-->
                                         <!--                                                </li>-->
 
-                                        <li class="nav-item">
-                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
-                                                <!--															<img src="../static/img/product/pro4.jpg" alt="" />-->
+<!--                                        <li class="nav-item">-->
+<!--                                            <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">-->
+<!--                                                &lt;!&ndash;															<img src="../static/img/product/pro4.jpg" alt="" />&ndash;&gt;-->
+<!--                                                <span class="admin-name">Пользователь</span>-->
+<!--                                                <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>-->
+<!--                                            </a>-->
 
-                                                <span class="admin-name">Пользователь: <tr th:text="${user}"> </tr> </span>
-
-
-                                                <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
-                                            </a>
-
-                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                <li>
-                                                    <a href="edit-profile">
-<!--                                                    <a th:href="@{'/edit/'+${userId}}">-->
-                                                        <span class="edu-icon edu-home-admin author-log-ic"></span>Мой профиль</a>
-                                                </li>
-<!--                                                <li><a href=""><span class="edu-icon edu-user-rounded author-log-ic"></span>Редактировать</a>-->
+<!--                                            <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">-->
+<!--                                                <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>Мой профиль</a>-->
 <!--                                                </li>-->
-                                                <!--                                                        <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>-->
-                                                <!--                                                        </li>-->
-                                                <!--                                                        <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>-->
-                                                <!--                                                        </li>-->
+<!--                                                <li><a href="edit-profile"><span class="edu-icon edu-user-rounded author-log-ic"></span>Редактировать</a>-->
+<!--                                                </li>-->
+<!--                                                &lt;!&ndash;                                                        <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                                        </li>&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                                        <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>&ndash;&gt;-->
+<!--                                                &lt;!&ndash;                                                        </li>&ndash;&gt;-->
 
-<!--                                                <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Выход</a>-->
+<!--&lt;!&ndash;                                                <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Выход</a>&ndash;&gt;-->
+<!--&lt;!&ndash;                                                </li>&ndash;&gt;-->
+
+<!--                                                <li><a href="#" th:href="@{/logout}"><span class="edu-icon edu-user-rounded author-log-ic"></span>Выход</a>-->
 <!--                                                </li>-->
 
-                                                <li><a href="#" th:href="@{/logout}"><span class="edu-icon edu-user-rounded author-log-ic"></span>Выход</a>
-                                                </li>
+<!--                                            </ul>-->
 
-                                            </ul>
-
-                                        </li>
+<!--                                        </li>-->
 
                                         <!--                                                <li class="nav-item nav-setting-open"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="educate-icon educate-menu"></i></a>-->
 

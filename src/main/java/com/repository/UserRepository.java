@@ -4,8 +4,14 @@ import com.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findUserById(long userId);
-    User findUserByRole(int userRole);
+    List<User> findUserByRole(int userRole);
+    User findUserByName(String name);
+    List<User> findByName(String name);
+    long count();
+
 }

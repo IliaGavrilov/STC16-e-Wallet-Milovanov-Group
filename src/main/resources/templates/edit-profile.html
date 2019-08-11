@@ -31,7 +31,7 @@
 
                     <form method="POST" th:action="@{/profile}" th:object="${user}">
                         <h1>Редактирование профиля</h1>
-                        <a th:href="@{/client#profile}" id="another">Вернуться в профиль</a><br/>
+<!--                        <a th:href="@{/client#profile}" id="another">Вернуться в профиль</a><br/>-->
 
                         <div th:if="${#fields.hasErrors()}">
                             <span class="validationError">
@@ -39,9 +39,9 @@
                             </span>
                         </div>
 
-                        <h3>Измените Ваши данные: </h3>
+                        <h4>Измените Ваши данные: </h4>
                         <!--<label for="name">Name: </label>-->
-                        <label th:text="Name"></label>
+                        <label th:text="Имя"></label>
                         <input type="text" th:field="*{name}"/>
                         <br/>
 
@@ -49,11 +49,11 @@
                         <input type="text" th:field="*{email}"/>
                         <br/>
 
-                        <label th:text="Password"></label>
-                        <input type="password" th:field="*{password}"/>
+                        <label th:text="Пароль"></label>
+                        <input type="text" th:field="*{password}"/>
                         <br/>
 
-                        <input type="submit" value="Submit order"/>
+                        <input type="submit" value="Отправить"/>
                     </form>
 
 <!--                    <div class="sparkline13-hd">-->

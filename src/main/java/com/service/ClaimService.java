@@ -7,9 +7,7 @@ import com.entity.User;
 import java.util.List;
 
 public interface ClaimService {
-
     void addClaim(User user, BankBill productId);
-
     void addClaim(long userId, BankBill productId);
 
     Claim getClaimById(long id);
@@ -19,6 +17,8 @@ public interface ClaimService {
     List<Claim> getAllUserClaims(User user);
 
     List<Claim> getAllUserClaims(long userId);
+
+	public List<Claim> getAllByStatus(Claim.StatusEnum status);
 
     void removeClaimById(int id);
 }
