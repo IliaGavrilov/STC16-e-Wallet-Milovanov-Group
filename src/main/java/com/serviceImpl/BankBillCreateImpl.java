@@ -20,8 +20,4 @@ public class BankBillCreateImpl implements com.service.BankBillCreate {
         bankBill = bankBillRepository.saveAndFlush( bankBill );
         return bankBill;
     }
-
-    public User findUserByName(Object name) {
-        return userRepository.findUserByName( name.toString() );
-    }
 }
