@@ -22,15 +22,15 @@
         </createTable>
 
         <insert tableName="role">
-            <column name="type" value="ADMIN"/>
+            <column name="type" value="ROLE_ADMIN"/>
         </insert>
 
         <insert tableName="role">
-            <column name="type" value="BANK"/>
+            <column name="type" value="ROLE_BANK"/>
         </insert>
 
         <insert tableName="role">
-            <column name="type" value="CLIENT"/>
+            <column name="type" value="ROLE_CLIENT"/>
         </insert>
 
         <!--User-->
@@ -41,7 +41,7 @@
             </column>
 
             <column name="role" type="int">
-                <constraints nullable="false" foreignKeyName="fk_users_role" references="role(id)" />
+                <constraints nullable="false" foreignKeyName="fk_user_role" references="role(id)" />
             </column>
 
             <column name="name" type="varchar(200)">
@@ -61,26 +61,26 @@
         </createTable>
 
         <insert tableName="users">
-            <column name="role" valueComputed="(SELECT id FROM role WHERE type='ADMIN')" />
+            <column name="role" valueComputed="(SELECT id FROM role WHERE type='ROLE_ADMIN')" />
             <column name="name" value="Max"/>
             <column name="email" value="admin@admin.ru"/>
-            <column name="password" value="1"/>  <!--c4ca4238a0b923820dcc509a6f75849b-->
+            <column name="password" value="$2a$10$w5cnJfkX9pvvf5CyElSNcumtRVduge3ylLnyvrIYccgla0j76yzKK"/>  <!--c4ca4238a0b923820dcc509a6f75849b-->
             <column name="active" value="true"/>
         </insert>
 
         <insert tableName="users">
-            <column name="role" valueComputed="(SELECT id FROM role WHERE type='BANK')" />
+            <column name="role" valueComputed="(SELECT id FROM role WHERE type='ROLE_BANK')" />
             <column name="name" value="Elena"/>
             <column name="email" value="Elena@bank.ru"/>
-            <column name="password" value="2"/>  <!--c81e728d9d4c2f636f067f89cc14862c-->
+            <column name="password" value="$2a$10$ImS59HyJLVahNv3j.lMdHOx6rvxl9pUUiJOxFgorKxei95BuEcwem"/>  <!--c81e728d9d4c2f636f067f89cc14862c-->
             <column name="active" value="true"/>
         </insert>
 
         <insert tableName="users">
-            <column name="role" valueComputed="(SELECT id FROM role WHERE type='CLIENT')" />
+            <column name="role" valueComputed="(SELECT id FROM role WHERE type='ROLE_CLIENT')" />
             <column name="name" value="Alex"/>
             <column name="email" value="Alex@home.ru"/>
-            <column name="password" value="3"/>  <!--eccbc87e4b5ce2fe28308fd9f2a7baf3-->
+            <column name="password" value="$2a$10$3SzVBINOJiQzNZrgz43.VukHIzEz4iXmnG5sy0sns1Zk9ap6qVD2m"/>  <!--eccbc87e4b5ce2fe28308fd9f2a7baf3-->
             <column name="active" value="true"/>
         </insert>
 
