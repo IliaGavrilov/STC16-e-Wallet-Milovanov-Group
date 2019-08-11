@@ -8,5 +8,5 @@ public interface AccountsService {
     Accounts getAccountById(Long id);
     User getUserById(long id);
 
-    Accounts getAccountByIdAndUserId(long accountsId, long userId);
+//    Accounts getAccountByIdAndUserId(long accountsId, User user);
 }

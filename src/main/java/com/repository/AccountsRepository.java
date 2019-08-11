@@ -1,6 +1,7 @@
 package com.repository;
 
 import com.entity.Accounts;
+import com.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -10,6 +11,6 @@ import java.util.List;
 public interface AccountsRepository extends JpaRepository<Accounts,Long> {
     List<Accounts> findAllById(long userId);
 
-    Accounts findDistinctByIdAndId_user(long accountsId, long userId);
-    
+//    Accounts findDistinctByIdAndId_user(long accountsId, User user);
+
 }

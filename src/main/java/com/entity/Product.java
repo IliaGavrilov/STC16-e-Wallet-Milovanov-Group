@@ -21,14 +21,24 @@ public class Product {
     @Column(name = "number_of_bill", unique = true)
     public long numberOfBill;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "bank_id")
+    private Bank bank;
+
+    @Column(name = "funds")
+    public Float accountFund;
+
     public Product() {
         this.numberOfBill = setNumberOfBill();
+        this.accountFund = setAccountFundDefault();
     }
 
-    public Product(User user, BankBill bankBill) {
+    public Product(User user, BankBill bankBill, Bank bank) {
         this.user = user;
         this.bankBill = bankBill;
+        this.bank = bank;
         this.numberOfBill = setNumberOfBill();
+        this.accountFund = setAccountFundDefault();
     }
 
     public long getId() {
@@ -61,5 +71,25 @@ public class Product {
 
     public long setNumberOfBill() {
         return new Timestamp( System.currentTimeMillis() ).getTime();
+    }
+
+    public Bank getBank() {
+        return bank;
+    }
+
+    public void setBank(Bank bank) {
+        this.bank = bank;
+    }
+
+    public Float getAccountFund() {
+        return this.accountFund;
+    }
+
+    public void setAccountFund(Float accountFund) {
+        this.accountFund = accountFund;
+    }
+
+    public Float setAccountFundDefault() {
+        return 0.0f;
     }
 }

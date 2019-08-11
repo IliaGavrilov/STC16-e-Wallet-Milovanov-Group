@@ -22,8 +22,9 @@ public class ProductController {
      * @param bankBillId
      */
     @PostMapping
-    public void addProduct(@RequestParam("userId") long userId, @RequestParam("bankBillId") long bankBillId){
-        service.addProduct(userId, bankBillId);
+    public void addProduct(@RequestParam("userId") long userId, @RequestParam("bankBillId") long bankBillId,
+                           @RequestParam("bankId") long bankId ){
+        service.addProduct(userId, bankBillId, bankId);
     }
 
     /**

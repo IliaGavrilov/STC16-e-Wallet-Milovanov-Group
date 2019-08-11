@@ -29,16 +29,12 @@
                         <th scope="col">Доступные средства</th>
                     </tr>
                 </thead>
-                <!--/*@thymesVar id="user_accounts" type="com.controllers.AccountsController"*/-->
-<!--                th:each="account : ${user_accounts}"-->
                 <tbody>
-                    <!--/*@thymesVar id="user" type="com.entity.User"*/-->
-                    <tr th:each="acc, iterator : ${user.getAccounts()}">
-                        <!--/*@thymesVar id="acc" type="com.entity.Accounts"*/-->
+                    <tr th:each="acc, iterator : ${user.getProducts()}">
                         <th scope="row" th:text="${iterator.index+1}">0</th>
-                        <th th:text="${acc.getBank_id().getName()}">BANK_NAME</th>
-                        <th th:text="${acc.getId_typeOfBankBill().getTitle()}">BILL_TYPE</th>
-                        <th th:text="${acc.getAccount_fund()}">0</th>
+                        <th th:text="${acc.getBank().getName()}">BANK_NAME</th>
+                        <th th:text="${acc.getBankBill().getTypeOfBankBill().getTitle()}">BILL_TYPE</th>
+                        <th th:text="${acc.getAccountFund()}">0</th>
                         <th><a th:href="@{'/profile/accounts/'+${acc.getId()}+'/replenish-account'}">Пополнить счет</a></th>
                     </tr>
                 </tbody>

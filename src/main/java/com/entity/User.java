@@ -22,9 +22,10 @@ public class User {
     @JsonBackReference
     private Set<Bank> banks = new HashSet<>();
 
-    @OneToMany(mappedBy = "id_user",
-            cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private List<Accounts> accounts;
+    @OneToMany(mappedBy = "user",
+            cascade = CascadeType.MERGE,
+            orphanRemoval = true)
+    private List<Product> products;
 
     public Set<Bank> getBanks() {
         return banks;
@@ -34,12 +35,15 @@ public class User {
         this.banks = banks;
     }
 
-    public List<Accounts> getAccounts() {
-        return accounts;
+//    public List<Accounts> getAccounts() {
+//        return accounts;
+//    }
+    public List<Product> getProducts() {
+        return products;
     }
 
-    public void setAccounts(List<Accounts> accounts) {
-        this.accounts = accounts;
+    public void setAccounts(List<Product> products) {
+        this.products = products;
     }
 
     public User() {
