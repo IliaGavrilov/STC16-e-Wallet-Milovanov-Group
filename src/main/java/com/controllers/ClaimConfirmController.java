@@ -24,32 +24,31 @@ public class ClaimConfirmController {
 		this.claimService = claimService;
 	}
 
-	@RequestMapping("/active-applications")
-	public String index(Model model){
-
-		return "active-applications";
-	}
-
-//	@RequestMapping(value="/active-applications", method = RequestMethod.GET)
-//	public ModelAndView addService() {
-//		Claim claim = new Claim(  );
-//
-//		ModelAndView modelAndView = new ModelAndView(  );
-//		modelAndView.addObject( "claim",claim );
-//		modelAndView.addObject( "action", "save" );
-//		modelAndView.addObject( "formAction", "/bankservicecreate" );
-//		modelAndView.setViewName( "bankservicecreate" );
-//		return modelAndView;
+//	@RequestMapping("/active-applications")
+//	public String index(Model model){
+//		return "active-applications";
 //	}
 
-	@GetMapping("/active-applications")
-	public String showAll(Model model) {
+	@RequestMapping(value="/active-applications", method = RequestMethod.GET)
+	public ModelAndView addService() {
 		Claim claim = new Claim(  );
-		model.addAttribute( "claim", claim );
-		List<Claim> claimList = claimService.findAll();
-		model.addAttribute("claims", claimList);
-		return "active-applications";
+
+		ModelAndView modelAndView = new ModelAndView(  );
+		modelAndView.addObject( "claim",claim );
+		modelAndView.addObject( "action", "save" );
+		modelAndView.addObject( "formAction", "/bankservicecreate" );
+		modelAndView.setViewName( "bankservicecreate" );
+		return modelAndView;
 	}
+
+//	@GetMapping("/active-applications")
+//	public String showAll(Model model) {
+//		Claim claim = new Claim(  );
+//		model.addAttribute( "claim", claim );
+//		List<Claim> claimList = claimService.findAll();
+//		model.addAttribute("claims", claimList);
+//		return "active-applications";
+//	}
 
 	@RequestMapping(value = "/statusChange", method = RequestMethod.POST, params = "action=apply")
 	public ModelAndView apply(@ModelAttribute Claim claim) {
