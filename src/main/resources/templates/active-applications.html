@@ -132,37 +132,48 @@
 
                     <!--                <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application">-->
                     <h2>Заявки</h2>
-                    <form action="@{/active-applications}" th:object="${claim}">
-                        <table>
-                            <thead>
-                            <tr th:if="claims.isempty==true">
-                                <td colspan="2"> No Claims Available</td>
-                            </tr>
-                            <tr>
-                                <th> ID</th>
-                                <th> Имя пользователся</th>
-                                <th> Название заявки</th>
-                                <th> Статус</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr th:each="claim : ${claims}">
-                                <td th:text="${claim.id}"></td>
-                                <td th:text="${claim.user.name}"></td>
-                                <td th:text="${claim.bankBill.name}"></td>
-                                <td th:text="${claim.status}"></td>
-                                <td>
-                                    <form method="POST" th:action="@{/active-applications/statusChange}" th:object="${claim}">
-                                        <output name="claimIdCancel" id="claimIdCancel" th:field="${claim.getId()}"/>
-                                        <button type="submit" class="btn btn-primary submit" name="action" value="accept">Одобрить</button>
-                                        <button type="submit" class="btn btn-primary submit" name="action" value="cancel">Отклонить</button>
-                                    </form>
-                                </td>
-                            </tr>
-                            </tbody>
-                        </table>
+                    <!--                    <form action="@{/active-applications}" th:object="${claim}">-->
+                    <table>
+                        <thead>
+                        <tr th:if="claims.isempty==true">
+                            <td colspan="2"> No Claims Available</td>
+                        </tr>
 
-                    </form>
+                        <tr>
+                            <th> ID</th>
+                            <th> Имя пользователся</th>
+                            <th> Название заявки</th>
+                            <th> Статус</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="claim : ${claims}">
+                            <td th:text="${claim.getId()}"></td>
+                            <td th:text="${claim.getUser().getName()}"></td>
+                            <td th:text="${claim.getBankBill().getName()}"></td>
+                            <td th:text="${claim.getStatus()}"></td>
+                            <td>
+                                <!--                                    <form method="POST" th:action="@{/active-applications/statusChange}" th:object="${claim}">-->
+                                <!--                                        <output name="claimIdCancel" id="claimIdCancel" th:field="${claim.getId()}"/>-->
+                                <!--                                        <button type="submit" class="btn btn-primary submit" name="action" value="accept">Одобрить</button>-->
+                                <!--                                        <button type="submit" class="btn btn-primary submit" name="action" value="cancel">Отклонить</button>-->
+                                <!--                                    </form>-->
+
+                                <form method="POST" th:action="@{/active-applications/statusChange}">
+                                    <input type="hidden" name="claimId" id="claimId" th:value="${claim.getId()}"/>
+                                    <button type="submit" class="btn btn-primary submit" name="status" value="Accept">
+                                        Одобрить
+                                    </button>
+                                    <button type="submit" class="btn btn-primary submit" name="status" value="Negative">
+                                        Отклонить
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <!--                    </form>-->
 
 
                     <!--                    <ul class="list-group list-group-flush">-->
