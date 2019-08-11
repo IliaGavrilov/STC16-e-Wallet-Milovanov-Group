@@ -1,0 +1,59 @@
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="inc/head.inc::head"></head>
+
+<body>
+<!--[if lt IE 8]-->
+<!--    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]-->
+
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
+
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
+
+<!-- User Accounts List-->
+<div class="section">
+    <div class="container">
+        <div class="table-responsive text-nowrap">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Наименование банка</th>
+                        <th scope="col">Тип счета</th>
+                        <th scope="col">Доступные средства</th>
+                    </tr>
+                </thead>
+                <!--/*@thymesVar id="user_accounts" type="com.controllers.AccountsController"*/-->
+<!--                th:each="account : ${user_accounts}"-->
+                <tbody>
+                    <!--/*@thymesVar id="user" type="com.entity.User"*/-->
+                    <tr th:each="acc, iterator : ${user.getAccounts()}">
+                        <!--/*@thymesVar id="acc" type="com.entity.Accounts"*/-->
+                        <th scope="row" th:text="${iterator.index+1}">0</th>
+                        <th th:text="${acc.getBank_id().getName()}">BANK_NAME</th>
+                        <th th:text="${acc.getId_typeOfBankBill().getTitle()}">BILL_TYPE</th>
+                        <th th:text="${acc.getAccount_fund()}">0</th>
+                        <th><a th:href="@{'/profile/accounts/'+${acc.getId()}+'/replenish-account'}">Пополнить счет</a></th>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
+
+</div>
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
+
+</body>
+</html>

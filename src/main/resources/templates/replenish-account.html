@@ -1,0 +1,65 @@
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="inc/head.inc::head"></head>
+
+<body>
+<!--[if lt IE 8]-->
+<!--    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]-->
+
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
+
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
+
+<!-- User replenish area-->
+<div class="section">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+                    <!--/*@thymesVar id="formRepl" type="com.controllers.AccountsController"*/-->
+                    <!--/*@thymesVar id="account" type="com.entity.Accounts"*/-->
+                    <form method="POST" th:action="${formRepl}" th:object="${account}">
+                        <h1>Пополнение счета профиля</h1>
+                        <!--<div class="form-group mx-sm-3 mb-2">
+                            Счет:
+                            <select class="form-group" th:field="${account.getId_typeOfBankBill()}">
+                                &lt;!&ndash;/*@thymesVar id="user" type="com.entity.User"*/&ndash;&gt;
+                                <option th:each="acc, iterator : ${user.getAccounts()}"
+                                        th:value="${acc.get_bank_id().getName()}"
+                                        th:text="${acc.getId_typeOfBankBill().getTitle()}">
+                                </option>
+                            </select>
+                        </div>-->
+                        <div class="form-group mx-sm-3 mb-2">
+                            <input type="hidden" th:field="*{id}" placeholder="id" required="required" class="form-control" />
+                            <input type="text" th:field="*{account_fund}" placeholder="Сумма" required="required" class="form-control" />
+                        </div>
+                        <div class="btn btn-primary mb-2">
+                            <button type="submit" class="btn btn-primary submit">Сохранить</button>
+                        </div>
+                        <div class="btn mb-2">
+                            <button type="reset" class="btn submit">Сбросить</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
+
+</div>
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
+
+</body>
+</html>

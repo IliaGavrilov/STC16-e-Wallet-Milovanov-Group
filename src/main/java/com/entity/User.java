@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name="users")
@@ -21,12 +22,24 @@ public class User {
     @JsonBackReference
     private Set<Bank> banks = new HashSet<>();
 
+    @OneToMany(mappedBy = "id_user",
+            cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private List<Accounts> accounts;
+
     public Set<Bank> getBanks() {
         return banks;
     }
 
     public void setBanks(Set<Bank> banks) {
         this.banks = banks;
+    }
+
+    public List<Accounts> getAccounts() {
+        return accounts;
+    }
+
+    public void setAccounts(List<Accounts> accounts) {
+        this.accounts = accounts;
     }
 
     public User() {

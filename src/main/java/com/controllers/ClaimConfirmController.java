@@ -5,10 +5,12 @@ import com.serviceImpl.ClaimConfirmServiceImpl;
 import com.serviceImpl.ClaimServiceImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -24,11 +26,10 @@ public class ClaimConfirmController {
 		this.claimService = claimService;
 	}
 
-	@RequestMapping("/active-applications")
+/*	@RequestMapping("/active-applications")
 	public String index(Model model){
-
 		return "active-applications";
-	}
+	}*/
 
 //	@RequestMapping(value="/active-applications", method = RequestMethod.GET)
 //	public ModelAndView addService() {

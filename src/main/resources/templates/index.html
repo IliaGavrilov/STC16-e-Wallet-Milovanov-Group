@@ -190,189 +190,22 @@
 <!-- Press Coverage -->
 
 <!-- Services -->
-<!--<div class="section">
+<div class="section">
     <div class="container">
         <div class="row">
-            <div class="col-md-4 col-sm-6">
+            <!--/*@thymesVar id="bill_types" type="com.controllers.IndexController"*/-->
+            <div th:each="bill_type : ${bill_types}" class="col-md-4 col-sm-6">
                 <div class="service-wrapper">
-                    <img src="../img/service/diamond.png" alt="Service 1">
-                    <h3>Удобство в использовании</h3>
-                    <p>Наш сервис представляет удобную платформу для пользователя</p>
-                    <a href="#" class="btn">Читать больше</a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="service-wrapper">
-                    <img src="../img/service/ruler.png" alt="Service 2">
-                    <h3>Надежность</h3>
-                    <p>Защита и постоянный доступ к Вашим средствам - это наша основная работа</p>
-                    <a href="#" class="btn">Читать больше</a>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6">
-                <div class="service-wrapper">
-                    <img src="../img/service/box.png" alt="Service 3">
-                    <h3>Мы становимся лучше</h3>
-                    <p>С каждым днем мы улучшаем наш сервис что бы Вам было удобнее работать</p>
-                    <a href="#" class="btn">Читать больше</a>
+                    <!--/*@thymesVar id="bill_type" type="com.entity.TypeOfBankBill"*/-->
+<!--                    <img src="../img/service/diamond.png" alt="Service 1">-->
+                    <h3 th:text="${bill_type.getTitle()}">ТИП СЧЕТА</h3>
+<!--                    <a th:href="@{'/bank-list/'+${bill_type.getId()}}" class="btn">Узнать больше</a>-->
                 </div>
             </div>
         </div>
     </div>
-</div>-->
+</div>
 <!-- End Services -->
-
-<!-- Блок отзывы -->
-<!--<div class="section">
-    <div class="container">
-        <h2>Отзывы о нашем проекте</h2>
-        <div class="row">
-            &lt;!&ndash; Testimonial &ndash;&gt;
-            <div class="testimonial col-md-4 col-sm-6">
-                &lt;!&ndash; Author Photo &ndash;&gt;
-                <div class="author-photo">
-                    <img src="../../../../UserInterface/img/user1.jpg" alt="Author 1">
-                </div>
-                <div class="testimonial-bubble">
-                    <blockquote>
-                        &lt;!&ndash; Quote &ndash;&gt;
-                        <p class="quote">
-                            "Вообще пушка!!11!"
-                        </p>
-                        &lt;!&ndash; Author Info &ndash;&gt;
-                        <cite class="author-info">
-                            - Name Surname,<br>Managing Director at <a href="#">Some Company</a>
-                        </cite>
-                    </blockquote>
-                    <div class="sprite arrow-speech-bubble"></div>
-                </div>
-            </div>
-            &lt;!&ndash; End Testimonial &ndash;&gt;
-            <div class="testimonial col-md-4 col-sm-6">
-                <div class="author-photo">
-                    <img src="../../../../UserInterface/img/user5.jpg" alt="Author 2">
-                </div>
-                <div class="testimonial-bubble">
-                    <blockquote>
-                        <p class="quote">
-                            "ОГОНЬ!!!"
-                        </p>
-                        <cite class="author-info">
-                            - Name Surname,<br>Managing Director at <a href="#">Some Company</a>
-                        </cite>
-                    </blockquote>
-                    <div class="sprite arrow-speech-bubble"></div>
-                </div>
-            </div>
-            <div class="testimonial col-md-4 col-sm-6">
-                <div class="author-photo">
-                    <img src="../../../../UserInterface/img/user2.jpg" alt="Author 3">
-                </div>
-                <div class="testimonial-bubble">
-                    <blockquote>
-                        <p class="quote">
-                            "Все классно, спасибо большое!"
-                        </p>
-                        <cite class="author-info">
-                            - Name Surname,<br>Managing Director at <a href="#">Some Company</a>
-                        </cite>
-                    </blockquote>
-                    <div class="sprite arrow-speech-bubble"></div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>-->
-<!-- Конец блока отзывы -->
-
-<!--		 Pricing Table
-	    <div class="section">
-	    	<div class="container">
-	    		<h2>Pricing</h2>
-	        	<div class="row">
-	        		 Pricing Plans Wrapper
-	        		<div class="pricing-wrapper col-md-12">
-        				 Pricing Plan
-						<div class="pricing-plan">
-							 Pricing Plan Ribbon
-							<div class="ribbon-wrapper">
-								<div class="price-ribbon ribbon-red">Popular</div>
-							</div>
-							<h2 class="pricing-plan-title">Starter</h2>
-							<p class="pricing-plan-price">FREE</p>
-							 Pricing Plan Features
-							<ul class="pricing-plan-features">
-								<li><strong>1</strong> user</li>
-								<li><strong>Unlimited</strong> projects</li>
-								<li><strong>2GB</strong> storage</li>
-							</ul>
-							<a href="index.html" class="btn">Order Now</a>
-						</div>
-						 End Pricing Plan
-					    <div class="pricing-plan">
-							<h2 class="pricing-plan-title">Advanced</h2>
-							<p class="pricing-plan-price">$49<span>/mo</span></p>
-								<ul class="pricing-plan-features">
-									<li><strong>10</strong> users</li>
-									<li><strong>Unlimited</strong> projects</li>
-									<li><strong>20GB</strong> storage</li>
-								</ul>
-							<a href="index.html" class="btn">Order Now</a>
-					    </div>
-					     Promoted Pricing Plan
-					    <div class="pricing-plan pricing-plan-promote">
-								<h2 class="pricing-plan-title">Premium</h2>
-								<p class="pricing-plan-price">$99<span>/mo</span></p>
-								<ul class="pricing-plan-features">
-									<li><strong>Unlimited</strong> users</li>
-									<li><strong>Unlimited</strong> projects</li>
-									<li><strong>100GB</strong> storage</li>
-								</ul>
-							<a href="index.html" class="btn">Order Now</a>
-					    </div>
-					    <div class="pricing-plan">
-					    	 Pricing Plan Ribbon
-							<div class="ribbon-wrapper">
-								<div class="price-ribbon ribbon-green">New</div>
-							</div>
-							<h2 class="pricing-plan-title">Mega</h2>
-							<p class="pricing-plan-price">$199<span>/mo</span></p>
-								<ul class="pricing-plan-features">
-									<li><strong>Unlimited</strong> users</li>
-									<li><strong>Unlimited</strong> projects</li>
-									<li><strong>100GB</strong> storage</li>
-								</ul>
-							<a href="index.html" class="btn">Order Now</a>
-					    </div>
-	        		</div>
-	        		 End Pricing Plans Wrapper
-	        	</div>
-	    	</div>
-	    </div>
-	     End Pricing Table -->
-
-<!--		 Our Clients
-	    <div class="section">
-	    	<div class="container">
-	    		<h2>Our Clients</h2>
-				<div class="clients-logo-wrapper text-center row">
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/canon.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/cisco.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/dell.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/ea.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/ebay.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/facebook.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/google.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/hp.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/microsoft.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/mysql.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/sony.png" alt="Client Name"></a></div>
-					<div class="col-lg-1 col-md-1 col-sm-3 col-xs-6"><a href="#"><img src="../img/logos/yahoo.png" alt="Client Name"></a></div>
-				</div>
-			</div>
-	    </div>
-	     End Our Clients -->
-
 <!-- Footer -->
 <div class="footer">
     <div class="container">

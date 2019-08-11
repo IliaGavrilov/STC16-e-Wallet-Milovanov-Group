@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <changeSet id="2019-08-03-init" author="STC-16_Milovanov_Group">
+        <!--Accounts-->
+        <createTable tableName="accounts">
+            <column name="id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="id_user" type="int">
+                <constraints nullable="false" foreignKeyName="fk_users_id" references="users(id)"/>
+            </column>
+            <column name="type_of_bank_bill_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_type_of_bank_bill_id" references="typeofbankbill(id)" />
+            </column>
+            <column name="bank_id" type="int">
+                <constraints nullable="false" foreignKeyName="fk_bank_id" references="bank(id)"/>
+            </column>
+            <column name="funds" type="real">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+
+        <insert tableName="accounts">
+            <column name="id_user" value="1"/>
+            <column name="type_of_bank_bill_id" value="1" />
+            <column name="bank_id" value="1" />
+            <column name="funds" value="0.0" />
+        </insert>
+        <insert tableName="accounts">
+            <column name="id_user" value="2"/>
+            <column name="type_of_bank_bill_id" value="2" />
+            <column name="bank_id" value="2" />
+            <column name="funds" value="0.0" />
+        </insert>
+        <insert tableName="accounts">
+            <column name="id_user" value="3"/>
+            <column name="type_of_bank_bill_id" value="3" />
+            <column name="bank_id" value="3" />
+            <column name="funds" value="0.0" />
+        </insert>
+
+    </changeSet>
+</databaseChangeLog>
