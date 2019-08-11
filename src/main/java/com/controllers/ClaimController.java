@@ -3,6 +3,7 @@ package com.controllers;
 import com.entity.BankBill;
 import com.entity.Claim;
 import com.entity.User;
+import com.repository.BankBillRepository;
 import com.repository.UserRepository;
 import com.serviceImpl.ClaimServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,8 @@ public class ClaimController {
     ClaimServiceImpl service;
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    BankBillRepository bankBillRepository;
 
 
     @GetMapping("/index")
@@ -32,13 +35,14 @@ public class ClaimController {
     //удалить дефолтное значение
     @PostMapping()
 //    public void createClaim(@RequestParam("userId") int userId, @RequestParam("bankBillId") int productId){
-    public String  createClaim( Principal principal, @RequestParam("bankBillId") BankBill productId){
-        //дефолтное значение
-        long userId =1l;
-        User user = userRepository.findUserById(userId);
-
-        service.addClaim(user, productId);
-        return "claimApply";
+    public String  createClaim( Principal principal, @RequestParam("bankBillId") long productId){
+	    //дефолтное значение
+	    long userId =1l;
+	    productId = 1l;
+	    User user = userRepository.findUserById(userId);
+	    BankBill bankBill = bankBillRepository.findDistinctById(productId);
+	    service.addClaim(user, bankBill);
+	    return "claimApply";
     }
 
     @GetMapping("/all")
