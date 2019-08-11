@@ -14,4 +14,5 @@ public interface ClaimRepository extends JpaRepository<Claim, Long> {
     List<Claim> findAllByUser(User user);
 
     List<Claim> findAllByStatus(Claim.StatusEnum status);
+    long count();
 }
