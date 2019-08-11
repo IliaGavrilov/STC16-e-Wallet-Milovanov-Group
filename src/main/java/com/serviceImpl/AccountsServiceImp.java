@@ -37,4 +37,9 @@ public class AccountsServiceImp implements AccountsService {
     public User getUserById(long id) {
         return userRepository.findUserById(id);
     }
+
+    @Override
+    public Accounts getAccountByIdAndUserId(long accountsId, long userId) {
+        return accountsRepository.findDistinctByIdAndId_user(accountsId, userId);
+    }
 }

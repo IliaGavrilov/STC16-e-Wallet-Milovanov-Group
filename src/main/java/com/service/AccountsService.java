@@ -7,4 +7,6 @@ public interface AccountsService {
     Accounts addFunds(Accounts account);
     Accounts getAccountById(Long id);
     User getUserById(long id);
+
+    Accounts getAccountByIdAndUserId(long accountsId, long userId);
 }

@@ -35,8 +35,12 @@ public class AccountsController {
      * */
     //@PreAuthorize("hasRole('CLIENT')")
     @RequestMapping(value = "/profile/accounts/{id}/replenish-account", method = RequestMethod.GET)
+//    public ModelAndView replenishForm(@PathVariable Integer id, Principal principal){
     public ModelAndView replenishForm(@PathVariable Integer id){
-        Accounts account = accountsServiceImp.getAccountById(Long.valueOf(id));
+        long testUserId = 1L;
+//        Accounts account = accountsServiceImp.getAccountById(Long.valueOf(id));
+        Accounts account = accountsServiceImp.getAccountByIdAndUserId(1l,testUserId );
+
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("account", account);
         //modelAndView.addObject("user", accountsServiceImp.getUserById(id));

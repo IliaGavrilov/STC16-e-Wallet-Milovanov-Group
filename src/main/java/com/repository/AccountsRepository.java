@@ -9,4 +9,7 @@ import java.util.List;
 @Repository
 public interface AccountsRepository extends JpaRepository<Accounts,Long> {
     List<Accounts> findAllById(long userId);
+
+    Accounts findDistinctByIdAndId_user(long accountsId, long userId);
+    
 }
