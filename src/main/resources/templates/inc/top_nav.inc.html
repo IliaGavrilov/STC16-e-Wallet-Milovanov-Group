@@ -175,15 +175,21 @@
                                         <li class="nav-item">
                                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle">
                                                 <!--															<img src="../static/img/product/pro4.jpg" alt="" />-->
-                                                <span class="admin-name">Пользователь</span>
+
+                                                <span class="admin-name">Пользователь: <tr th:text="${user}"> </tr> </span>
+
+
                                                 <i class="fa fa-angle-down edu-icon edu-down-arrow"></i>
                                             </a>
 
                                             <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                                <li><a href="#"><span class="edu-icon edu-home-admin author-log-ic"></span>Мой профиль</a>
+                                                <li>
+                                                    <a href="edit-profile">
+<!--                                                    <a th:href="@{'/edit/'+${userId}}">-->
+                                                        <span class="edu-icon edu-home-admin author-log-ic"></span>Мой профиль</a>
                                                 </li>
-                                                <li><a href="edit-profile"><span class="edu-icon edu-user-rounded author-log-ic"></span>Редактировать</a>
-                                                </li>
+<!--                                                <li><a href=""><span class="edu-icon edu-user-rounded author-log-ic"></span>Редактировать</a>-->
+<!--                                                </li>-->
                                                 <!--                                                        <li><a href="#"><span class="edu-icon edu-money author-log-ic"></span>User Billing</a>-->
                                                 <!--                                                        </li>-->
                                                 <!--                                                        <li><a href="#"><span class="edu-icon edu-settings author-log-ic"></span>Settings</a>-->

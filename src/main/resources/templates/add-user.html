@@ -1,0 +1,85 @@
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="inc/head.inc::head"></head>
+
+<body>
+
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
+
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+
+                    <h1>Добавить пользователя</h1>
+<!--<div class="container my-5">-->
+<!--    <h2 class="mb-5">New User</h2>-->
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+
+            <form action="#" th:action="@{/add-user}" th:object="${user}" method="post">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name" class="col-form-label">Имя</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Имя">
+                        <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email" class="col-form-label">Email</label>
+                        <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email">
+                        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="email" class="col-form-label">Пароль</label>
+                        <input type="text" th:field="*{password}" class="form-control" id="password" placeholder="Пароль">
+                        <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="text-danger"></span>
+                    </div>
+<!--                    <div class="form-group col-md-6">-->
+                    <div>
+<!--                        <label for="email" class="col-form-label">Роль</label>-->
+<!--                        <input type="text" th:field="*{role}" class="form-control" id="role" placeholder="Role">-->
+<!--                        <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="text-danger"></span>-->
+
+                        <label>Тип счёта:</label>
+                        <select th:field="*{role}" class="custom-select" id="role" >
+<!--                            <option value="">Выберите роль</option>-->
+                            <option th:value="1">Администратор</option>
+                            <option th:value="2">Банковский работник</option>
+                            <option th:value="3">Клиент</option>
+<!--                            <option th:value="4">Вклад</option>-->
+                        </select>
+
+                        <span th:if="${#fields.hasErrors('role')}" th:errors="*{role}" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-5">
+                        <input type="submit" class="btn btn-primary" value="Add User">
+                    </div>
+                </div>
+            </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
+
+<!--</div>-->
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
+</body>
+</html>
