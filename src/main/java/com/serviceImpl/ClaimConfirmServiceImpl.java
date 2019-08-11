@@ -14,17 +14,9 @@ public class ClaimConfirmServiceImpl implements ClaimConfirmService {
 	@Qualifier("claimRepository")
 	private ClaimRepository claimRepository;
 
-	public void acceptClaim(Claim claim) {
-		claimRepository.findClaimById( claim.getId() ).setStatus( Claim.StatusEnum.Accept );
-	}
-
-	public void resetClaim(Claim claim) {
-		claimRepository.findClaimById( claim.getId() ).setStatus( Claim.StatusEnum.Negative );
-	}
 
 	public void setStatus(Claim claim, Claim.StatusEnum status){
 		claim.setStatus(status);
 		claimRepository.save(claim);
 	}
-
 }

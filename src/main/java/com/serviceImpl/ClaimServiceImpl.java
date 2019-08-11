@@ -88,7 +88,6 @@ public class ClaimServiceImpl implements ClaimService {
         return repository.findAll();
     }
 
-
     @Override
     public List<Claim> getAllByStatus(Claim.StatusEnum status){
         return repository.findAllByStatus(status);

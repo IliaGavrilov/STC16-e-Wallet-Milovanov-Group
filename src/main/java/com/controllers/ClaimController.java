@@ -36,13 +36,13 @@ public class ClaimController {
     @PostMapping()
 //    public void createClaim(@RequestParam("userId") int userId, @RequestParam("bankBillId") int productId){
     public String  createClaim( Principal principal, @RequestParam("bankBillId") long productId){
-        //дефолтное значение
-        long userId =1l;
-        productId = 1l;
-        User user = userRepository.findUserById(userId);
-        BankBill bankBill = bankBillRepository.findDistinctById(productId);
-        service.addClaim(user, bankBill);
-        return "claimApply";
+	    //дефолтное значение
+	    long userId =1l;
+	    productId = 1l;
+	    User user = userRepository.findUserById(userId);
+	    BankBill bankBill = bankBillRepository.findDistinctById(productId);
+	    service.addClaim(user, bankBill);
+	    return "claimApply";
     }
 
     @GetMapping("/all")
