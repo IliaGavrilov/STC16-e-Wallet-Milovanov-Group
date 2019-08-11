@@ -31,6 +31,7 @@ public class User {
 
     public User() {
     }
+
     public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
@@ -41,7 +42,7 @@ public class User {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
