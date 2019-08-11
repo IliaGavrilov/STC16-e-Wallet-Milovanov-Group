@@ -93,16 +93,4 @@ public class Bank {
 	public void setBankBills(List<BankBill> bankBills) {
 		this.bankBills = bankBills;
 	}
-
-	@OneToMany(mappedBy = "bank_id",
-			cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-	private List<Accounts> accounts;
-
-	public List<Accounts> getAccounts() {
-		return accounts;
-	}
-
-	public void setAccounts(List<Accounts> accounts) {
-		this.accounts = accounts;
-	}
 }

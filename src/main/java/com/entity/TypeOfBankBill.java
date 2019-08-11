@@ -33,9 +33,6 @@ public class TypeOfBankBill {
     @OneToMany(mappedBy = "typeOfBankBill")
     private List<BankBill> bankBill;
 
-    @OneToMany(mappedBy = "id_typeOfBankBill", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private List<Accounts> accounts;
-
     public List<BankBill> getBankBill() {
         return bankBill;
     }
@@ -44,12 +41,5 @@ public class TypeOfBankBill {
         this.bankBill = bankBill;
     }
 
-    public List<Accounts> getAccounts() {
-        return accounts;
-    }
-
-    public void setAccounts(List<Accounts> accounts) {
-        this.accounts = accounts;
-    }
 }
 
