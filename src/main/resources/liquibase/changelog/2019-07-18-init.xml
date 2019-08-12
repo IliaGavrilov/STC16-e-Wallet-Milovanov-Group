@@ -10,17 +10,22 @@
         <!--ADD SOME BANKS-->
 
         <insert tableName="bank">
-            <column name="name" value="TestBank1"/>
-            <column name="description" value="Some desc of test bank 1" />
+            <column name="name" value="Сбербанк"/>
+            <column name="description" value="Сбербанк России - частным клиентам" />
         </insert>
         <insert tableName="bank">
-            <column name="name" value="TestBank2"/>
-            <column name="description" value="Some desc of test bank 2" />
+            <column name="name" value="Тинькофф Банк"/>
+            <column name="description" value="TCS Group Holding - Коммерческий банк" />
         </insert>
         <insert tableName="bank">
-            <column name="name" value="TestBank3"/>
-            <column name="description" value="Some desc of test bank 3" />
+            <column name="name" value="«АК БАРС» Банк"/>
+            <column name="description" value="Ак Барс Банк - Казань" />
         </insert>
+
+<!--        <insert tableName="bank">-->
+<!--            <column name="name" value="Райффайзенбанк"/>-->
+<!--            <column name="description" value="Райффайзенбанк – банк для жизни и бизнеса" />-->
+<!--        </insert>-->
 
     </changeSet>
 </databaseChangeLog>
