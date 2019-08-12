@@ -1,23 +1,25 @@
 package com;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.crypto.factory.PasswordEncoderFactories;
-import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web
-            .ignoring().antMatchers("/resources/", "/static/", "/resources/css/",
-                "/resources/js/", "/resources/images/**","/resources/bootstrap/**","/resources/fonts/");
+        web.ignoring().antMatchers("/resources/", "/static/", "/resources/css/",
+                "/resources/js/", "/resources/images/**", "/resources/bootstrap/**", "/resources/fonts/");
     }
 
     @Override
@@ -25,35 +27,37 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .authorizeRequests()
                 .antMatchers("/", "/index", "/login", "/register", "/static/**").permitAll()
-//                .antMatchers("/", "/greeting", "/login", "/register", "/static/**", "/bank-list**").permitAll()
-//                .antMatchers("/client**").hasAnyRole("CLIENT", "BANK", "ADMIN")
+//                .antMatchers("/", "/greeting", "/login", "/bank-list**").permitAll()
+//                .antMatchers("/admin**").access("hasRole('ADMIN')")
 //                .antMatchers("/bank**").hasAnyRole("BANK", "ADMIN")
-//                .antMatchers("/admin**").hasAnyRole("CLIENT", "BANK", "ADMIN")
+//                .antMatchers("/client**").hasAnyRole("CLIENT", "BANK", "ADMIN")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
                 .loginPage("/login")
+                .defaultSuccessUrl("/admin", true)
                 .permitAll()
                 .and()
                 .logout()
                 .permitAll();
+
     }
 
-    @Override
-    public void configure(AuthenticationManagerBuilder auth) throws Exception {
-        PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        auth.inMemoryAuthentication()
-                .withUser("client")
-                .password(encoder.encode("3"))
-                .roles("CLIENT")
-                .and()
-                .withUser("bank")
-                .password(encoder.encode("2"))
-                .roles("BANK")
-                .and()
-                .withUser("admin")
-                .password(encoder.encode("1"))
-                .roles("ADMIN");
+
+    @Autowired
+    DataSource dataSource;
+
+    @Autowired
+    public void config(AuthenticationManagerBuilder auth) throws Exception {
+
+
+        auth.jdbcAuthentication().dataSource(dataSource)
+                .usersByUsernameQuery(
+                        "select users.name, users.password, users.active from users where users.name=?")
+                .authoritiesByUsernameQuery(
+                        "select users.name, role.type FROM users, role where role.id = users.role and users.name=?").passwordEncoder(new BCryptPasswordEncoder());
+
     }
+
 
 }

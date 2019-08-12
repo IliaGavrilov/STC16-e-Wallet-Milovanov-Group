@@ -31,16 +31,11 @@ public class ClaimController {
         return "client";
     }
 
-    // TODO вытаскивать пользователя из сессии
-    //удалить дефолтное значение
+
     @PostMapping()
-//    public void createClaim(@RequestParam("userId") int userId, @RequestParam("bankBillId") int productId){
-    public String  createClaim( Principal principal, @RequestParam("bankBillId") long productId){
-	    //дефолтное значение
-	    long userId =1l;
-	    productId = 1l;
-	    User user = userRepository.findUserById(userId);
-	    BankBill bankBill = bankBillRepository.findDistinctById(productId);
+    public String  createClaim(Principal principal, @RequestParam("bankBillId") long bankBillId){
+        User user = userRepository.findUserByName(principal.getName());
+	    BankBill bankBill = bankBillRepository.findDistinctById(bankBillId);
 	    service.addClaim(user, bankBill);
 	    return "claimApply";
     }
@@ -51,16 +46,10 @@ public class ClaimController {
         return "bankBillList";
     }
 
-    // TODO добавить проверку на права доступа
-    // т.е. не каждый пользователь может с помощью этого запроса увидеть
-    // список запросов другого пользователя
     @GetMapping
-//    public List<Claim> getAllUserClaims(Principal principal){
-    public List<Claim> getAllUserClaims(@RequestParam("userId") long userId){
-        //дефолтное значение
-        userId =1l;
-
-        return service.getAllUserClaims(userId);
+    public List<Claim> getAllUserClaims(Principal principal){
+        User user = userRepository.findUserByName(principal.getName());
+        return service.getAllUserClaims(user);
     }
 
     @GetMapping("/{id}")
