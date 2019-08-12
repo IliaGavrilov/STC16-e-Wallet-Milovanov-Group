@@ -19,7 +19,7 @@ public class AdminController {
     public String index(Principal principal, Model model){
         model.addAttribute("user", principal.getName());
         User loggedUser = userRepository.findUserByName(principal.getName());
-        model.addAttribute("userId", loggedUser.getId());
+        model.addAttribute("user", loggedUser.getId());
         return "admin";
     }
 }
