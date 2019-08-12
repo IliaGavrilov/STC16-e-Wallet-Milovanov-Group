@@ -17,11 +17,34 @@
 <div th:replace="inc/top_nav.inc::top_nav"></div>
 
 
-<!--<tr th:each="user : ${users}">-->
-<!--    <td th:text="${user.name}"></td>-->
-<!--    <td><a href="#" th:text="${user.title}">Title ...</a></td>-->
-<!--    <td th:text="${user.text}">Text ...</td>-->
-<!--</tr>-->
+<!--<div class="data-table-area mg-b-15">-->
+<!--    <div class="container-fluid">-->
+<!--        <div class="row">-->
+<!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+<!--                <div class="sparkline13-list">-->
+
+<!--                    <h2>Клиенты</h2>-->
+<!--                    <table  cellpadding="5" width="400">-->
+<!--                        <thead>-->
+<!--                        <tr>-->
+<!--                            <th> Имя </th>-->
+<!--                            <th> Адрес электронной почты </th>-->
+<!--                        </tr>-->
+<!--                        </thead>-->
+<!--                        <tbody>-->
+
+<!--                        <tr th:each="user : ${users}">-->
+<!--                            <td><span th:text="${user.name}"> NAME </span></td>-->
+<!--                            <td><span th:text="${user.email}"> EMAIL </span></td>-->
+<!--                        </tr>-->
+<!--                        </tbody>-->
+<!--                    </table>-->
+
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
 
 <div class="data-table-area mg-b-15">
     <div class="container-fluid">
@@ -30,20 +53,25 @@
                 <div class="sparkline13-list">
 
                     <h2>Клиенты</h2>
-                    <table  cellpadding="5" width="400">
+                    <!--                    <form action="@{/active-applications}" th:object="${claim}">-->
+                    <table cellpadding="5" width="600">
                         <thead>
+                        <tr th:if="users.isempty==true">
+                            <td colspan="2"> Нет данных</td>
+                        </tr>
+
                         <tr>
-                            <th> Имя </th>
-                            <th> Адрес электронной почты </th>
+                            <th> Имя пользователя</th>
+                            <th> Email</th>
+
                         </tr>
                         </thead>
                         <tbody>
-                        <!--    <tr th:if="${users == null}">-->
-                        <!--        <td colspan="2"> No Books Available </td>-->
-                        <!--    </tr>-->
+
                         <tr th:each="user : ${users}">
-                            <td><span th:text="${user.name}"> NAME </span></td>
-                            <td><span th:text="${user.email}"> EMAIL </span></td>
+                            <td><span th:text="${user.name}"> Имя пользователся </span></td>
+                            <td><span th:text="${user.email}"> Email </span></td>
+                        </tr>
                         </tr>
                         </tbody>
                     </table>
@@ -53,6 +81,7 @@
         </div>
     </div>
 </div>
+
 
 <!-- Footer -->
 <footer th:replace="inc/footer.inc::footer"></footer>
