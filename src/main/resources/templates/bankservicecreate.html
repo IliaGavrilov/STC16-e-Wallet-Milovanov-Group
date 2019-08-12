@@ -28,16 +28,16 @@
         <label>Тип счёта:</label>
         <select class="custom-select" th:field="*{typeOfBankBill}">
             <option value="">Выберите тип счёта</option>
-            <option th:value="1">Расчётный счёт</option>
-            <option th:value="2">Дебетовый счёт</option>
-            <option th:value="3">Кредитный счёт</option>
-            <option th:value="4">Вклад</option>
+            <option th:each="typeOfBankBill : ${typeOfBankBillList}" th:value="${typeOfBankBill.Id}" th:text="${typeOfBankBill.getTitle()}"></option>
         </select>
     </div>
     <br/>
     <div>
         <label>ID банка: </label>
-        <input type="text" th:field="*{bank}"/>
+        <select th:field="*{bank}">
+            <option value="">Выберите банк</option>
+            <option th:each="bank : ${banks}" th:value="${bank.Id}" th:text="${bank.getName()}"></option>
+        </select>
     </div>
     <br/>
     <div>
