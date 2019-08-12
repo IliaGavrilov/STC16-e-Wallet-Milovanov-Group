@@ -1,12 +1,15 @@
 package com.controllers;
 
 import com.entity.Product;
+import com.entity.User;
+import com.repository.UserRepository;
 import com.serviceImpl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -15,10 +18,11 @@ public class ProductController {
 
     @Autowired
     private ProductServiceImpl service;
+    @Autowired
+    private UserRepository userRepository;
 
     /**
      * добавление продукта конкретному пользователю
-     * @param userId
      * @param bankBillId
      */
     @PostMapping
