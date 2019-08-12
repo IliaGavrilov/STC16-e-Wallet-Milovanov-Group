@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ClaimService {
     void addClaim(User user, BankBill productId);
-    void addClaim(long userId, BankBill productId);
+    void addClaim(long userId, long bankBillId);
 
     Claim getClaimById(long id);
 

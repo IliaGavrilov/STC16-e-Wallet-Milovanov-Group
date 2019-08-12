@@ -35,10 +35,11 @@ public class ClaimServiceImpl implements ClaimService {
     }
 
     @Override
-    public void addClaim(long userId, BankBill productId) {
+    public void addClaim(long userId, long bankBillId) {
         User user = userRepository.findUserById(userId);
+        BankBill bankBill = bankBillRepository.findDistinctById( bankBillId );
         if(user !=null){
-            addClaim(user, productId);
+            addClaim(user, bankBill);
         }else{
             LOGGER.error("user with id = "+userId+" not found");
         }

@@ -17,73 +17,68 @@
 <div th:replace="inc/top_nav.inc::top_nav"></div>
 
 
-
-
-
-
 <!-- Start Welcome area -->
 <div class="all-content-wrapper">
-<!--    <div class="container-fluid">-->
-<!--        <div class="row">-->
-<!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
-<!--                <div class="logo-pro">-->
-<!--                    <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<div class="analytics-sparkle-area">
-    <div class="container-fluid">
-        <div class="row">
-            <tr th:each="bankbill : ${bankbills}">
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+    <!--    <div class="container-fluid">-->
+    <!--        <div class="row">-->
+    <!--            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">-->
+    <!--                <div class="logo-pro">-->
+    <!--                    <a href="index.html"><img class="main-logo" src="img/logo/logo.png" alt="" /></a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="analytics-sparkle-area">
+        <div class="container-fluid">
+            <div class="row">
+                <tr th:each="bankbill : ${bankbills}">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12">
+                        <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
+                            <div class="analytics-content">
+                                <h2><td><span th:text="${bankbill.name}"> Name </span></td></h2>
+                                <h3><td><span th:text="${bankbill.description}"> Description </span></td></h3>
+                                <h4>%<td><span th:text="${bankbill.percentRate}" class="counter"> Percentages </span></td></h4>
+                                <td>
+                                    <form method="POST" th:action="@{/claim/Create}">
+                                        <input type="hidden" name="bankBillId" id="bankBillId" th:value="${bankbill.getId()}">
+                                        <button type="submit" class="btn btn-primary submit" name="claim" value="Submit">
+                                            Подать заявку
+                                        </button>
+                                    </form>
+                                </td>
+                                <span class="text-info"> </span>
+                                <div class="progress m-b-0">
+                                    <div class="progress-bar progress-bar-info" role="progressbar" th:aria-valuenow="10"
+                                         aria-valuemin="0" aria-valuemax="100" style="width: 65%;"> <span class="sr-only">20% Complete</span>
+                                    </div>
+                                </div>
 
-                    <div class="analytics-sparkle-line reso-mg-b-30 table-mg-t-pro dk-res-t-pro-30">
-                        <div class="analytics-content">
-                            <h2><td><span th:text="${bankbill.name}"> Name </span></td></h2>
-<!--                            <h5>Electrical Engineering</h5>-->
-
-
-<!--                            <h2>$<span class="counter">2000</span>-->
-<!--                            <h2><span class="tuition-fees">Tuition Fees</span></h2>-->
-                            <h3><td><span th:text="${bankbill.description}"> Description </span></td></h3>
-
-                            <h4>%<td><span th:text="${bankbill.percentRate}" class="counter"> Percentages </span></td></h4>
-
-                            <span class="text-info"> </span>
-
-                            <div class="progress m-b-0">
-                                <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width:60%;"> <span class="sr-only">20% Complete</span> </div>
-<!--                                <tr th:value="${bankbill.percentRate}"</tr>              -->
-<!--                <tr th:text="${bankbill.percentRate}"</tr>-->
-<!--                <tr th:text="${userData.get(0)}"> </tr>-->
-                            </div>
                         </div>
                     </div>
-                </div>
-                </tr>
-
-<!--                <table>-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <th> Name </th>-->
-<!--                        <th> Email </th>-->
-<!--                        <th> Percentages </th>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                    <tbody>-->
-<!--                    <tr th:each="bankbill : ${bankbills}">-->
-<!--                        <td><span th:text="${bankbill.name}"> Name </span></td>-->
-<!--                        <td><span th:text="${bankbill.description}"> Description </span></td>-->
-<!--                        <td><span th:text="${bankbill.percentRate}"> Percentages </span></td>-->
-<!--                    </tr>-->
-<!--                    </tbody>-->
-<!--                </table>-->
-
             </div>
+            </tr>
+
+            <!--                <table>-->
+            <!--                    <thead>-->
+            <!--                    <tr>-->
+            <!--                        <th> Name </th>-->
+            <!--                        <th> Email </th>-->
+            <!--                        <th> Percentages </th>-->
+            <!--                    </tr>-->
+            <!--                    </thead>-->
+            <!--                    <tbody>-->
+            <!--                    <tr th:each="bankbill : ${bankbills}">-->
+            <!--                        <td><span th:text="${bankbill.name}"> Name </span></td>-->
+            <!--                        <td><span th:text="${bankbill.description}"> Description </span></td>-->
+            <!--                        <td><span th:text="${bankbill.percentRate}"> Percentages </span></td>-->
+            <!--                    </tr>-->
+            <!--                    </tbody>-->
+            <!--                </table>-->
 
         </div>
+
     </div>
+</div>
 </div>
 <!--</div>-->
 
