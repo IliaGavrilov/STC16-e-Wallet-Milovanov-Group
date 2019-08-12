@@ -23,10 +23,10 @@ public class AccountsController {
     @Autowired
     UserRepository userRepository;
 
-    @RequestMapping(value = "/profile/accounts/{id}")
-    public ModelAndView accountV1(@PathVariable String id, Principal principal) {
+    @RequestMapping(value = "/profile/accounts")
+    public ModelAndView account(Principal principal) {
         ModelAndView modelAndViewAccounts = new ModelAndView();
-        modelAndViewAccounts.addObject("user", userRepository.findUserById(1l));
+        modelAndViewAccounts.addObject("user", userRepository.findUserByName(principal.getName()));
         modelAndViewAccounts.setViewName("accounts_id");
         return modelAndViewAccounts;
     }
@@ -35,8 +35,8 @@ public class AccountsController {
      * Форма добавления средств
      * */
     @RequestMapping(value = "/profile/accounts/{id}/replenish-account", method = RequestMethod.GET)
-    public ModelAndView replenishForm(@PathVariable Integer id){
-        Product product = productService.getProduct(Long.valueOf(id), 1l);
+    public ModelAndView replenishForm(@PathVariable Integer id, Principal principal){
+        Product product = productService.getProduct(Long.valueOf(id), userRepository.findUserByName(principal.getName()).getId());
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.addObject("account", product);
         //modelAndView.addObject("user", accountsServiceImp.getUserById(id));
