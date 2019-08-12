@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import com.entity.User;
 import com.repository.UserRepository;
 
+import java.security.Principal;
+
 @Controller
 public class UserController {
 
@@ -29,14 +31,15 @@ public class UserController {
     }
 
     @PostMapping("/add-user")
-    public String addUser(@Valid User user, BindingResult result, Model model) {
+    public String addUser(@Valid User user, BindingResult result, Model model, Principal principal) {
         if (result.hasErrors()) {
             return "index";
         }
 
+        user.setActive(true);
         userRepository.save(user);
-        model.addAttribute("users", userRepository.findAll());
-        return "index";
+        model.addAttribute("user", principal.getName());
+        return "admin";
     }
 
     @GetMapping("/edit/{id}")
