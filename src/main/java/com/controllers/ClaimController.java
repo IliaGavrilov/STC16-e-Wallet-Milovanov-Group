@@ -32,13 +32,12 @@ public class ClaimController {
     }
 
 
-    @PostMapping()
+    @PostMapping(value = "/Create")
     public String  createClaim(Principal principal, @RequestParam("bankBillId") long bankBillId){
-//        User user = userRepository.findUserByName(principal.getName());
-        User user = userRepository.findUserById(3l);
+        User user = userRepository.findUserByName(principal.getName());
 	    BankBill bankBill = bankBillRepository.findDistinctById(bankBillId);
 	    service.addClaim(user, bankBill);
-	    return "claimApply";
+	    return "bank";
     }
 
     @GetMapping("/all")
