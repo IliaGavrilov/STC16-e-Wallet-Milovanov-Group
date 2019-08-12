@@ -18,7 +18,7 @@ public interface ClaimService {
 
     List<Claim> getAllUserClaims(long userId);
 
-	public List<Claim> getAllByStatus(Claim.StatusEnum status);
+	List<Claim> getAllByStatus(Claim.StatusEnum status);
 
     void removeClaimById(int id);
 }

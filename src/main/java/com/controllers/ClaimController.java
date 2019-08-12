@@ -47,9 +47,11 @@ public class ClaimController {
     }
 
     @GetMapping
-    public List<Claim> getAllUserClaims(Principal principal){
+    public String getAllUserClaims(Principal principal, Model model){
         User user = userRepository.findUserByName(principal.getName());
-        return service.getAllUserClaims(user);
+        List<Claim> claims = service.getAllUserClaims(user);
+        model.addAttribute("claims", claims);
+        return "userClaims";
     }
 
     @GetMapping("/{id}")

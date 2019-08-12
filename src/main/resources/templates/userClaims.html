@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="inc/head.inc::head"></head>
+
+<body>
+<!--[if lt IE 8]-->
+<!--    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>-->
+<!--[endif]-->
+
+<!-- Start Left menu area -->
+<div th:replace="inc/left_menu.inc::left_menu"></div>
+
+<!-- Start Welcome area -->
+<div th:replace="inc/top_nav.inc::top_nav"></div>
+
+
+<!--<tr th:each="user : ${users}">-->
+<!--    <td th:text="${user.name}"></td>-->
+<!--    <td><a href="#" th:text="${user.title}">Title ...</a></td>-->
+<!--    <td th:text="${user.text}">Text ...</td>-->
+<!--</tr>-->
+
+<div class="data-table-area mg-b-15">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sparkline13-list">
+
+
+                    <!--                <div class="tab-pane fade" id="application" role="tabpanel" aria-labelledby="application">-->
+                    <h2>Мои заявки</h2>
+                    <!--                    <form action="@{/active-applications}" th:object="${claim}">-->
+                    <table cellpadding="5" width="600">
+                        <thead>
+                        <tr th:if="claims.isempty==true">
+                            <td colspan="2"> No Claims Available</td>
+                        </tr>
+
+                        <tr>
+                            <th> Название заявки</th>
+                            <th> Статус заявки</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="claim : ${claims}">
+                            <td th:text="${claim.getBankBill().getName()}"></td>
+                            <td>
+                                <span th:if="${claim.getStatus().toString().equals('In_Question')}">На рассмотрении</span>
+                                <span th:if="${claim.getStatus().toString().equals('Negative')}">Отклонена</span>
+                            </td>
+
+                        </tr>
+                        </tbody>
+                    </table>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<footer th:replace="inc/footer.inc::footer"></footer>
+
+<!--</div>-->
+
+<!-- Scripts -->
+<div th:replace="inc/js.inc::js"></div>
+
+</body>
+</html>
