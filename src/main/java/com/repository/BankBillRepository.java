@@ -14,7 +14,7 @@ public interface BankBillRepository extends JpaRepository<BankBill, Long> {
 
     List<BankBill> bankBills = new ArrayList<>();
     BankBill findDistinctById(long bankBillId);
-
+    List<BankBill> findAll();
     long count();
 
 }
