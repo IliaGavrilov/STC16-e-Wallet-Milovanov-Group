@@ -15,39 +15,39 @@
 
         <div class="text-center custom-login">
             <h3>Регистрация пользователя</h3>
-<!--            <p>This is the best app ever!</p>-->
+            <!--            <p>This is the best app ever!</p>-->
         </div>
         <div class="content-error">
             <div class="hpanel">
                 <div class="panel-body">
-                    <form action="#" id="loginForm">
+                    <form action="#" th:action="@{/register}" th:object="${user}" method="post">
                         <div class="row">
                             <div class="form-group col-lg-12">
-                                <label>Имя</label>
-                                <input class="form-control">
+                                <label for="name">Имя</label>
+                                <input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Имя">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Пароль</label>
-                                <input type="password" class="form-control">
+                                <input type="password" class="form-control" placeholder="Пароль">
                             </div>
                             <div class="form-group col-lg-6">
-                                <label>Повторите пароль</label>
-                                <input type="password" class="form-control">
+                                <label for="password">Повторите пароль</label>
+                                <input type="text" th:field="*{password}" class="form-control" id="password" placeholder="Пароль">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Email</label>
-                                <input class="form-control">
+                                <input class="form-control" placeholder="Email">
                             </div>
                             <div class="form-group col-lg-6">
                                 <label>Повторите Email</label>
-                                <input class="form-control">
+                                <input type="text" th:field="*{email}" class="form-control" id="email" placeholder="Email">
                             </div>
-<!--                            <div class="checkbox col-lg-12">-->
-<!--                                <input type="checkbox" class="i-checks" checked> Sigh up for our newsletter-->
-<!--                            </div>-->
+                            <!--                            <div class="checkbox col-lg-12">-->
+                            <!--                                <input type="checkbox" class="i-checks" checked> Sigh up for our newsletter-->
+                            <!--                            </div>-->
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-success loginbtn">Зарегистрироваться</button>
+                            <button class="btn btn-success loginbtn" type="submit" value="Add User">Зарегистрироваться</button>
                             <button class="btn btn-default">Отменить</button>
                         </div>
                     </form>
@@ -57,10 +57,10 @@
 
 
 
-<!--        <div class="text-center login-footer">-->
-<!--            <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>-->
-<!--        </div>-->
-        <footer th:replace="inc/footersmall.inc::footer"></footer>
+        <!--        <div class="text-center login-footer">-->
+        <!--            <p>Copyright © 2018. All rights reserved. Template by <a href="https://colorlib.com/wp/templates/">Colorlib</a></p>-->
+        <!--        </div>-->
+        <footer th:replace="inc/footer.inc::footer"></footer>
     </div>
 </div>
 
