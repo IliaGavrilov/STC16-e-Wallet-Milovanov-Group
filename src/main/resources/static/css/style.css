@@ -139,7 +139,7 @@ body {}
 /*  4. left sidebar
 /*----------------------------------------*/
 .all-content-wrapper {
-    margin-left: 200px;
+    /*margin-left: 200px;*/
     transition: all 0.3s;
 }
 .left-sidebar-pro {
@@ -820,13 +820,14 @@ ul.setting-panel-list li{
     background: #e12503;
 }
 .breadcome-list {
-    padding-top: 20px;
+    /*changes of */
+	padding-top: 20px;
     padding-bottom: 20px;
     background: #fff;
     padding-left: 20px;
     padding-right: 20px;
     margin-bottom: 30px;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 .sr-input-func {
     position: relative;
@@ -2019,11 +2020,12 @@ ul.two-part-sp li{
 	display:block;
 }
 .header-top-area {
-    position: fixed;
+    /*changes here*/
+	position: fixed;
     background: -webkit-linear-gradient(178deg, #e12503 0%, #85060c 100%);
     background: linear-gradient(178deg, #e12503 0%, #85060c 100%);
     z-index: 99;
-    left: 200px;
+    left: 0px;
     right: 0;
     top: 0;
     margin: 0 auto;
