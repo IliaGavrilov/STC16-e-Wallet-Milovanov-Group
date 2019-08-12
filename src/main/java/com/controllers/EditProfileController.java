@@ -25,12 +25,8 @@ public class EditProfileController {
 
     @GetMapping
     @PreAuthorize("hasAnyRole('CLIENT', 'ADMIN', 'BANK')")
-    //public String index(Model model){
     public String index(Principal principal, Model model){
-
-        model.addAttribute("user", new User(principal.getName(), principal.getName(), principal.getName()));
-        //model.addAttribute("user", new User("Alex", "Alex@home.ru", "3"));
-        // TODO запрос к БД для получения полей юзера
+        model.addAttribute("user",userRepository.findUserByName(principal.getName()));
         return("edit-profile");
     }
 
