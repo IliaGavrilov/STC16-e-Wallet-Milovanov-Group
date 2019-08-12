@@ -16,14 +16,14 @@
             </column>
 
             <column name="users_id" type="bigint">
-                <constraints nullable="false"/>
+                <constraints nullable="false" foreignKeyName="fk_users_id" references="users(id)"/>
             </column>
 
             <column name="bankbill_id" type="bigint">
-                <constraints nullable="false"/>
+                <constraints nullable="false" foreignKeyName="fk_bank_bill_id" references="bankbill(id)"/>
             </column>
 
-            <column name="status" type="char(20)">
+            <column name="status" type="varchar(20)">
                 <constraints nullable="false"/>
             </column>
 
