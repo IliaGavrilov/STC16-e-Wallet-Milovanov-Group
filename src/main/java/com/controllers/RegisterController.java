@@ -38,6 +38,6 @@ public class RegisterController {
         user.setActive(true);
         user.setRole(3);
         userRepository.save(user);
-        return "index";
+        return "login";
     }
 }
