@@ -5,6 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity(name="users")
@@ -22,12 +23,28 @@ public class User {
     @JsonBackReference
     private Set<Bank> banks = new HashSet<>();
 
+    @OneToMany(mappedBy = "user",
+            cascade = CascadeType.MERGE,
+            orphanRemoval = true)
+    private List<Product> products;
+
     public Set<Bank> getBanks() {
         return banks;
     }
 
     public void setBanks(Set<Bank> banks) {
         this.banks = banks;
+    }
+
+//    public List<Accounts> getAccounts() {
+//        return accounts;
+//    }
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setAccounts(List<Product> products) {
+        this.products = products;
     }
 
     public User() {

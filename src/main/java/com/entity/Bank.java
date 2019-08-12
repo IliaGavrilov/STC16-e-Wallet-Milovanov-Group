@@ -15,7 +15,39 @@ public class Bank {
 	private String name;
 	private String description;
 
+	/**
+	 * Constructors
+	 */
 	public Bank() {
+	}
+
+	public Bank(String name, String description) {
+		this.name = name;
+		this.description = description;
+	}
+
+	/**
+	 * setters & getters
+	 *
+	 */
+	public long getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	@ManyToMany(cascade = {
@@ -40,7 +72,6 @@ public class Bank {
 		user.getBanks().remove( this );
 	}
 
-
 	@OneToMany(mappedBy = "bank",
 			cascade = CascadeType.MERGE,
 			orphanRemoval = true)
@@ -61,31 +92,5 @@ public class Bank {
 
 	public void setBankBills(List<BankBill> bankBills) {
 		this.bankBills = bankBills;
-	}
-
-	public Bank(String name, String description) {
-		this.name = name;
-		this.description = description;
-	}
-
-
-	public long getId() {
-		return id;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 }

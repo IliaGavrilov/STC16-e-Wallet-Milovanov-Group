@@ -30,7 +30,7 @@ public class TypeOfBankBill {
         this.id = id;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "typeOfBankBill")
+    @OneToMany(mappedBy = "typeOfBankBill")
     private List<BankBill> bankBill;
 
     public List<BankBill> getBankBill() {
@@ -40,5 +40,6 @@ public class TypeOfBankBill {
     public void setBankBill(List<BankBill> bankBill) {
         this.bankBill = bankBill;
     }
+
 }
 
