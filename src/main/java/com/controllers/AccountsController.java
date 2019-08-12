@@ -47,9 +47,10 @@ public class AccountsController {
     }
 
     @RequestMapping(value = "/profile/accounts/replenish-account", method = RequestMethod.POST)
-    public ModelAndView replenishSave(@RequestParam("id") long productId, @RequestParam("accountFund") Float accountFund){
-        long testUserId = 1L;
-        productService.setFund(productId,accountFund, testUserId);
-        return new ModelAndView("redirect:/bank");
+    public ModelAndView replenishSave(@RequestParam("id") long productId,
+                                      @RequestParam("accountFund") Float accountFund,
+                                      Principal principal){
+        productService.setFund(productId,accountFund, userRepository.findUserByName(principal.getName()).getId());
+        return new ModelAndView("redirect:/profile/accounts");
     }
 }
