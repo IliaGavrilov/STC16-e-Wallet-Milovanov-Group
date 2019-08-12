@@ -34,13 +34,12 @@ public class ProductController {
 
     /**
      * Получение всех продуктов пользователя
-     * @param userId
      * @return
      */
     @GetMapping
-    public String getProductByUserId(@RequestParam("userId") long userId, Model model){
-
-        List<Product> allUserProduct = service.getAllUserProduct(userId);
+    public String getProductByUserId(Principal principal, Model model){
+        User user = userRepository.findUserByName(principal.getName());
+        List<Product> allUserProduct = service.getAllUserProduct(user.getId());
         model.addAttribute( "allUserProduct", allUserProduct);
 
         return "product";
