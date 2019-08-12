@@ -47,8 +47,6 @@
 
 <!--    </div>-->
 <!--</div>-->
-
-
                     <div class="widget-program-box mg-tb-30">
                         <div class="container-fluid">
                             <div class="row">
@@ -73,10 +71,9 @@
 <!--                                                    Lorem Ipsum passages and more recently with the desktop published software like Aldus PageMaker.-->
 <!--                                                </p>-->
                                                 <p th:text="${bank.getDescription()}">DESCRIPTION</p>
-
-<!--                                                <button class="btn btn-danger widget-btn-4 btn-sm">Action button</button>-->
-                                                <button th:href="@{'/bank-list/bank/'+${bank.getId()}}" class="btn btn-danger widget-btn-4 btn-sm">Узнать больше</button>
-<!--                                                <a th:href="@{'/bank-list/bank/'+${bank.getId()}}" class="btn">Узнать больше</a>-->
+<!--                                            <button class="btn btn-danger widget-btn-4 btn-sm">Action button</button>-->
+                                                <a th:href="@{'/bank-list/bank/'+${bank.getId()}}" class="btn btn-primary btn-lg active">Узнать больше</a>
+<!--                                            <a th:href="@{'/bank-list/bank/'+${bank.getId()}}" class="btn">Узнать больше</a>-->
                                             </div>
                                         </div>
                                     </div>
@@ -84,11 +81,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
                 </div>
             </div>
         </div>
