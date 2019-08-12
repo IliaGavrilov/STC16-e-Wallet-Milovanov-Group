@@ -27,18 +27,29 @@
                 <constraints nullable="false" unique="true"/>
             </column>
 
+            <column name="bank_id" type="int">
+                <constraints nullable="false" unique="false"/>
+            </column>
+            <column name="funds" type="real">
+                <constraints nullable="false" />
+            </column>
+
         </createTable>
 
         <insert tableName="userproduct">
             <column name="users_id" value="1"/>
             <column name="bankbill_id" value="2"/>
             <column name="number_of_bill" value="555666"/>
+            <column name="bank_id" value="1"/>
+            <column name="funds" value="0.0" />
         </insert>
 
         <insert tableName="userproduct">
             <column name="users_id" value="1"/>
             <column name="bankbill_id" value="3"/>
             <column name="number_of_bill" value="2323232"/>
+            <column name="bank_id" value="2"/>
+            <column name="funds" value="0.0" />
         </insert>
 
 
