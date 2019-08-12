@@ -20,5 +20,5 @@ public interface ClaimService {
 
 	List<Claim> getAllByStatus(Claim.StatusEnum status);
 
-    void removeClaimById(int id);
+    void removeClaimById(long id);
 }

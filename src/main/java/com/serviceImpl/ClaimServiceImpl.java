@@ -70,7 +70,7 @@ public class ClaimServiceImpl implements ClaimService {
     }
 
     @Override
-    public void removeClaimById(int id){
+    public void removeClaimById(long id){
         Claim claim = repository.findClaimById(id);
         if(claim !=null){
             repository.delete(claim);

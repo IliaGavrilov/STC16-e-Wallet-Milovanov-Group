@@ -34,7 +34,8 @@ public class ClaimController {
 
     @PostMapping()
     public String  createClaim(Principal principal, @RequestParam("bankBillId") long bankBillId){
-        User user = userRepository.findUserByName(principal.getName());
+//        User user = userRepository.findUserByName(principal.getName());
+        User user = userRepository.findUserById(3l);
 	    BankBill bankBill = bankBillRepository.findDistinctById(bankBillId);
 	    service.addClaim(user, bankBill);
 	    return "claimApply";
@@ -60,7 +61,7 @@ public class ClaimController {
     }
 
     @PostMapping("/remove")
-    public void removeClaim(@RequestParam("id") int id){
-        service.removeClaimById(id);
+    public void removeClaim(@RequestParam("id") long id){
+        service.removeClaimById(Long.valueOf(id));
     }
 }

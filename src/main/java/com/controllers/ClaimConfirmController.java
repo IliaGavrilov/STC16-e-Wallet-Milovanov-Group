@@ -3,6 +3,7 @@ package com.controllers;
 import com.entity.Claim;
 import com.serviceImpl.ClaimConfirmServiceImpl;
 import com.serviceImpl.ClaimServiceImpl;
+import com.serviceImpl.ProductServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -18,7 +21,8 @@ public class ClaimConfirmController {
 
 	@Autowired
 	private ClaimConfirmServiceImpl claimConfirmServiceImpl;
-
+	@Autowired
+	private ProductServiceImpl productService;
 	@Autowired
 	private ClaimServiceImpl claimService;
 
@@ -30,9 +34,16 @@ public class ClaimConfirmController {
 	}
 
 	@PostMapping(value = "/active-applications/statusChange")
-	public ModelAndView cancel(long claimId, String status) {
+	public String cancel(long claimId, String status, Model model) {
 		Claim claim = claimService.getClaimById(claimId);
-		claimConfirmServiceImpl.setStatus( claim, Claim.StatusEnum.valueOf(status) );
-		return new ModelAndView("/active-applications");
+		Claim.StatusEnum statusClaim = Claim.StatusEnum.valueOf(status);
+		if(statusClaim.equals(Claim.StatusEnum.Accept)){
+			productService.addProduct(claim.getUser(), claim.getBankBill(), claim.getBankBill().getBank());
+			claimService.removeClaimById(claimId);
+		}else{
+			claimConfirmServiceImpl.setStatus( claim, statusClaim );
+		}
+
+		return showAll(model);
 	}
 }
