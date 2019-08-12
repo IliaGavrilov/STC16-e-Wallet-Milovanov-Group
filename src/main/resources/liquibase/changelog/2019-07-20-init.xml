@@ -29,6 +29,17 @@
 
         </createTable>
 
+        <insert tableName="claim">
+            <column name="users_id" value="3" />
+            <column name="bankbill_id" value="2"/>
+            <column name="status" value="In_Question"/>
+        </insert>
+
+        <insert tableName="claim">
+            <column name="users_id" value="3" />
+            <column name="bankbill_id" value="1"/>
+            <column name="status" value="In_Question"/>
+        </insert>
 
 
     </changeSet>
