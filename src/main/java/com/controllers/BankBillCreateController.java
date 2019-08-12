@@ -50,12 +50,11 @@ public class BankBillCreateController {
     /**
      * Сохранение созданной банковской услуги/счёта
      * @param bankBill - банковский счёт
-     * @return к созданию нового счёта, тут стоит решить куда должен быть переход после создания счёта
+     * @return окно создания нового счёта
      */
     @RequestMapping(value = "/bankservicecreate", method = RequestMethod.POST)
     public ModelAndView addServiceSave(@ModelAttribute BankBill bankBill){
         bankBillCreateImpl.save( bankBill );
-
         return new ModelAndView( "/bankservicecreate" );
     }
 
