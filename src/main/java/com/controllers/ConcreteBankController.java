@@ -1,5 +1,6 @@
 package com.controllers;
 
+import com.repository.BankBillRepository;
 import com.serviceImpl.GetBankByIdServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,14 +14,16 @@ public class ConcreteBankController {
      * сервис
      */
     private GetBankByIdServiceImpl getBankById;
+    private BankBillRepository bankBillRepository;
 
     /**
      * Autowired Конструктор
      * @param getBankById подключаем сервис для получения данных
      */
     @Autowired
-    public ConcreteBankController(GetBankByIdServiceImpl getBankById) {
+    public ConcreteBankController(GetBankByIdServiceImpl getBankById, BankBillRepository bankBillRepository) {
         this.getBankById = getBankById;
+        this.bankBillRepository = bankBillRepository;
     }
 
     /**
@@ -31,8 +34,7 @@ public class ConcreteBankController {
      */
     @GetMapping("/bank-list/bank/{id}")
     public String index(@PathVariable String id, Model model) {
-        model.addAttribute("bank", getBankById.getBankById(Long.valueOf(id)))
-                .addAttribute("bill_types", getBankById.getAllTypesOfBankBill());
+        model.addAttribute("bank", getBankById.getBankById(Long.parseLong(id)));
         return "concreteBank";
     }
 
