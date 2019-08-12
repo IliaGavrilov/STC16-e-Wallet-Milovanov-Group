@@ -1,6 +1,7 @@
 package com.controllers;
 
 import com.entity.Bank;
+import com.entity.BankBill;
 import com.repository.BankBillRepository;
 import com.repository.BankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,9 @@ public class BankController {
         this.repository = repository;
     }
     // TODO убрать index()
-    @RequestMapping()
+    @GetMapping()
     public String index(Model model){
-
+        model.addAttribute("bankBill", new BankBill() );
         model.addAttribute("bankbills", bankBillRepository.findAll());
         return "bank";
     }
