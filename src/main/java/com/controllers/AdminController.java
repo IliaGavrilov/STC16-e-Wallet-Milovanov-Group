@@ -17,9 +17,9 @@ public class AdminController {
 
     @RequestMapping("/admin")
     public String index(Principal principal, Model model){
-        model.addAttribute("userName", principal.getName());
-//        User loggedUser = userRepository.findUserByName(principal.getName());
-//        model.addAttribute("userId", loggedUser.getId());
+        model.addAttribute("user", principal.getName());
+        User loggedUser = userRepository.findUserByName(principal.getName());
+        model.addAttribute("userId", loggedUser.getId());
         return "admin";
     }
 }
