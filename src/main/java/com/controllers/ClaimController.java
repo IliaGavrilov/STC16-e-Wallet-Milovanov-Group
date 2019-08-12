@@ -37,7 +37,7 @@ public class ClaimController {
         User user = userRepository.findUserByName(principal.getName());
 	    BankBill bankBill = bankBillRepository.findDistinctById(bankBillId);
 	    service.addClaim(user, bankBill);
-	    return "bank";
+	    return "claimApply";
     }
 
     @GetMapping("/all")
