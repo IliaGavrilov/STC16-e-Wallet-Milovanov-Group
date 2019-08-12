@@ -1,6 +1,10 @@
 package com.controllers;
 
+import com.entity.Bank;
 import com.entity.BankBill;
+import com.entity.TypeOfBankBill;
+import com.repository.BankBillTypeRepository;
+import com.repository.BankRepository;
 import com.serviceImpl.QuickSortingServiceImpl;
 import com.serviceImpl.BankBillCreateImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,16 +13,25 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.awt.*;
+import java.util.List;
+
 
 @Controller
 
 public class BankBillCreateController {
 
     @Autowired
-    private final BankBillCreateImpl bankBillCreateImpl;
+    private BankBillCreateImpl bankBillCreateImpl;
 
     @Autowired
     private QuickSortingServiceImpl sortingService;
+
+    @Autowired
+    private BankBillTypeRepository bankBillTypeRepository;
+
+    @Autowired
+    private BankRepository bankRepository;
 
     public BankBillCreateController(BankBillCreateImpl bankBillCreateImpl) {
         this.bankBillCreateImpl = bankBillCreateImpl;
@@ -38,9 +51,17 @@ public class BankBillCreateController {
     @RequestMapping(value="/bankservicecreate", method = RequestMethod.GET)
     public ModelAndView addService() {
         BankBill bankBill = new BankBill();
+        TypeOfBankBill typeOfBankBill = new TypeOfBankBill();
+        Bank bank = new Bank();
+        List<TypeOfBankBill> typeOfBankBillList = bankBillTypeRepository.findAll();
+        List<Bank> banks = bankRepository.findAll();
 
         ModelAndView modelAndView = new ModelAndView(  );
         modelAndView.addObject( "bankBill",bankBill );
+        modelAndView.addObject( "typeOfBankBill", typeOfBankBill );
+        modelAndView.addObject( "bank", bank );
+        modelAndView.addObject( "banks", banks );
+        modelAndView.addObject( "typeOfBankBillList", typeOfBankBillList );
         modelAndView.addObject( "action", "save" );
         modelAndView.addObject( "formAction", "/bankservicecreate" );
         modelAndView.setViewName( "bankservicecreate" );
