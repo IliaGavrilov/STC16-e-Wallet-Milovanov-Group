@@ -40,7 +40,7 @@
                                 <h4>%<td><span th:text="${bankbill.percentRate}" class="counter"> Percentages </span></td></h4>
                                 <td>
                                     <form method="POST" th:action="@{/claim/Create}">
-                                        <input type="hidden" name="bankBillId" id="bankBillId" th:value="${bankBill.getId()}">
+                                        <input type="hidden" name="bankBillId" id="bankBillId" th:value="${bankbill.getId()}">
                                         <button type="submit" class="btn btn-primary submit" name="claim" value="Submit">
                                             Подать заявку
                                         </button>
