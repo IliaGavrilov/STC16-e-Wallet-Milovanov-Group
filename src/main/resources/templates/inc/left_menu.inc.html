@@ -14,7 +14,7 @@
                 <ul class="metismenu" id="menu1">
 
                     <li class="active">
-                        <a class="has-arrow" href="bank-list">
+                        <a class="has-arrow" href="/bank-list">
                             <!--								   <span class="educate-icon educate-home icon-wrap"></span>-->
                             <span class="mini-click-non">Банки</span>
                         </a>
@@ -23,14 +23,14 @@
                             <!--                                <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>-->
                             <!--                                <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>-->
                             <!--                                <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>-->
-                            <li><a title="Все банки" href="bank-list"><span class="mini-sub-pro">Все банки</span></a></li>
+                            <li><a title="Все банки" href="/bank-list"><span class="mini-sub-pro">Все банки</span></a></li>
                         </ul>
 
                     </li>
 
 
                     <li class="active">
-                        <a class="has-arrow" href="active-applications">
+                        <a class="has-arrow" href="/active-applications">
                             <!--								   <span class="educate-icon educate-home icon-wrap"></span>-->
                             <span class="mini-click-non">Заявки</span>
                         </a>
@@ -39,7 +39,7 @@
                             <!--                                <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>-->
                             <!--                                <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>-->
                             <!--                                <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>-->
-                            <li sec:authorize="hasRole('ROLE_BANK') or hasRole('ROLE_ADMIN')"><a title="Активные заявки" href="active-applications"><span class="mini-sub-pro">Активные заявки</span></a></li>
+                            <li sec:authorize="hasRole('ROLE_BANK') or hasRole('ROLE_ADMIN')"><a title="Активные заявки" href="/active-applications"><span class="mini-sub-pro">Активные заявки</span></a></li>
                         </ul>
 
                         <ul class="submenu-angle" aria-expanded="true">
@@ -47,38 +47,38 @@
                             <!--                                <li><a title="Dashboard v.2" href="index-1.html"><span class="mini-sub-pro">Dashboard v.2</span></a></li>-->
                             <!--                                <li><a title="Dashboard v.3" href="index-2.html"><span class="mini-sub-pro">Dashboard v.3</span></a></li>-->
                             <!--                                <li><a title="Analytics" href="analytics.html"><span class="mini-sub-pro">Analytics</span></a></li>-->
-                            <li sec:authorize="hasRole('ROLE_CLIENT')"><a title="Мои заявки" href="client"><span class="mini-sub-pro">Мои заявки</span></a></li>
+                            <li sec:authorize="hasRole('ROLE_CLIENT')"><a title="Мои заявки" href="/client"><span class="mini-sub-pro">Мои заявки</span></a></li>
                         </ul>
                     </li>
                     <!--                        <li>-->
                     <!--                            <a title="Landing Page" href="events.html" aria-expanded="false"><span class="educate-icon educate-event icon-wrap sub-icon-mg" aria-hidden="true"></span> <span class="mini-click-non">Event</span></a>-->
                     <!--                        </li>-->
                     <li sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_BANK')">
-                        <a class="has-arrow" href="all-bank-workers" aria-expanded="false">
+                        <a class="has-arrow" href="/all-bank-workers" aria-expanded="false">
                             <!--                                <span class="educate-icon educate-professor icon-wrap"></span> -->
                             <span class="mini-click-non">Банковские работники</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li><a title="Все работники" href="all-bank-workers"><span class="mini-sub-pro">Все работники</span></a></li>
-                            <li sec:authorize="hasRole('ROLE_ADMIN')"><a title="Добавить работника" href="add-user"><span class="mini-sub-pro">Добавить работника</span></a></li>
+                            <li><a title="Все работники" href="/all-bank-workers"><span class="mini-sub-pro">Все работники</span></a></li>
+                            <li sec:authorize="hasRole('ROLE_ADMIN')"><a title="Добавить работника" href="/add-user"><span class="mini-sub-pro">Добавить работника</span></a></li>
                             <!--                                <li><a title="Edit Professor" href="edit-professor.html"><span class="mini-sub-pro">Edit Professor</span></a></li>-->
                             <!--                                <li><a title="Professor Profile" href="professor-edit-profile.html"><span class="mini-sub-pro">Professor Profile</span></a></li>-->
                         </ul>
                     </li>
 
                     <li sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_BANK')">
-                        <a class="has-arrow" href="all-clients" aria-expanded="false">
+                        <a class="has-arrow" href="/all-clients" aria-expanded="false">
                             <!--                                <span class="educate-icon educate-student icon-wrap"></span> -->
                             <span class="mini-click-non">Клиенты</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
-                            <li sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_BANK')"><a title="Все клиенты" href="all-clients"><span class="mini-sub-pro">Все клиенты</span></a></li>
-                            <li sec:authorize="hasRole('ROLE_ADMIN')"><a title="Добавить клиента" href="add-user"><span class="mini-sub-pro">Добавить клиента</span></a></li>
+                            <li sec:authorize="hasRole('ROLE_ADMIN') or hasRole('ROLE_BANK')"><a title="Все клиенты" href="/all-clients"><span class="mini-sub-pro">Все клиенты</span></a></li>
+                            <li sec:authorize="hasRole('ROLE_ADMIN')"><a title="Добавить клиента" href="/add-user"><span class="mini-sub-pro">Добавить клиента</span></a></li>
                             <!--                                <li><a title="Edit Students" href="edit-student.html"><span class="mini-sub-pro">Edit Student</span></a></li>-->
                             <!--                                <li><a title="Students Profile" href="student-edit-profile.html"><span class="mini-sub-pro">Student Profile</span></a></li>-->
                         </ul>
                     </li>
 
                     <li>
-                        <a class="has-arrow" href="bank" aria-expanded="false">
+                        <a class="has-arrow" href="/bank" aria-expanded="false">
                             <!--                                <span class="educate-icon educate-course icon-wrap"></span> -->
                             <span class="mini-click-non">Банковские продукты</span></a>
                         <ul class="submenu-angle" aria-expanded="false">
