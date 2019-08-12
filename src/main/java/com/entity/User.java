@@ -1,6 +1,7 @@
 package com.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.springframework.security.crypto.bcrypt.BCrypt;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -35,7 +36,7 @@ public class User {
     public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
-        this.password = password;
+        this.password = hashPassword(password);
     }
 
     public long getId() {
@@ -75,7 +76,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = hashPassword(password);
     }
 
     public boolean isActive() {
@@ -84,5 +85,12 @@ public class User {
 
     public void setActive(boolean active) {
         this.active = active;
+    }
+
+    private String hashPassword(String password_plaintext) {
+        String salt = BCrypt.gensalt(12);
+        String hashed_password = BCrypt.hashpw(password_plaintext, salt);
+
+        return(hashed_password);
     }
 }
