@@ -33,13 +33,13 @@
             <column name="percent_rate" value="30.0"/>
             <column name="validity" value="0"/>
         </insert>
-        <insert tableName="bankbill">
-            <column name="id_type_of_bank_bill" value="4"/>
-            <column name="bank_id" value="1"/>
-            <column name="name" value="Денежный перевод народный"/>
-            <column name="description" value="Перевод с низким процентом" />
-            <column name="percent_rate" value="30.0"/>
-            <column name="validity" value="0"/>
-        </insert>
+<!--        <insert tableName="bankbill">-->
+<!--            <column name="id_type_of_bank_bill" value="4"/>-->
+<!--            <column name="bank_id" value="1"/>-->
+<!--            <column name="name" value="Денежный перевод народный"/>-->
+<!--            <column name="description" value="Перевод с низким процентом" />-->
+<!--            <column name="percent_rate" value="30.0"/>-->
+<!--            <column name="validity" value="0"/>-->
+<!--        </insert>-->
     </changeSet>
 </databaseChangeLog>
