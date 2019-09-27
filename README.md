@@ -1,20 +1,29 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# О приложении 
+Проект "Агрегатор банковских счетов" является учебным и был создан для тестирования модели взаимодейтсвия сотрудников банков с клиентами. Проект находится на стадии разработки, тестируются различные функции, ведется доработка ролевых моделей.
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Реализованы 3 ролевые модели: 
+- Администратор; 
+- Банковский сотрудник; 
+- Пользователь.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+Реализованы функции:
+- Авторизация/регистрация/редактирование пользователя, разлогирование;
+- Создание банковского продукта, создание заявки, обработка заявок, пополнение счета;
+- обновление дашборда.
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+Технологии:
+- Spring Boot (MVC, Security, Data JPA); 
+- Maven;
+- Liquibase;
+- PosrgreSQL;
+- Thymeleaf;
+- Bootstrap;
+- TFS;
+- Heroku (continuous integration).
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://www.visualstudio.com/en-us/docs/git/create-a-readme). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+# Запуск приложения локально
+- Установить и запустить PostgreSQL; 
+- При запуске приложения Liquibase создаст таблицы в БД postgres;
+- Запустить приложение и обратиться в браузере по http://localhost:8080/ 
+
+![ScreenShot](https://drive.google.com/file/d/1qo58AMKYlxBZYcGkPd5lGXxRWsS9aOvB/view)
