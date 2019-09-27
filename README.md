@@ -27,6 +27,7 @@
 - Запустить приложение и обратиться в браузере по http://localhost:8080/ 
 
 <div align="center">
-    <img src="/main/resources/static/img/e-Wallet_Dashboard/png/"width="400px"</img> 
+    <img src="https://drive.google.com/file/d/1qo58AMKYlxBZYcGkPd5lGXxRWsS9aOvB/view" width="400px"</img> 
 </div>
+
 
