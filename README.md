@@ -26,4 +26,7 @@
 - При запуске приложения Liquibase создаст таблицы в БД postgres;
 - Запустить приложение и обратиться в браузере по http://localhost:8080/ 
 
-![image](https://drive.google.com/file/d/1qo58AMKYlxBZYcGkPd5lGXxRWsS9aOvB/view)
+<div align="center">
+    <img src="/main/resources/static/img/e-Wallet_Dashboard/png/"width="400px"</img> 
+</div>
+
